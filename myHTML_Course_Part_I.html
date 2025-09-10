@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!-- learn the use of @media to change display on smaller screens (eg iphone or when browser window reduces)-->
+<html>
+<head>
+    <style>
+        .myGrid1 {
+            display: grid;                          
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 5 equal columns */      
+            gap: 2px;
+        }
+        
+        @media (max-width: 600px) {   /* when screen is less than 600px wide, use 3 columns instead of 5 */
+          .myGrid1 {
+            grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
+            color: white;
+          }
+
+          .table-title {
+            color: transparent;    /* hide the original text */
+            position: relative;    /* make it a positioning context */
+          }
+
+          .table-title::after {
+            content: attr(data-small); /* replacement text */
+            color: black;              /* make it visible */
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+        }   
+    </style>
+</head>
+
+<body>
+
+<h1 class="table-title" data-small="Table 3 by x">Table 5 by x</h1>
+
+<div class="myGrid1"> 
+  <div style="background-color: blue">div1</div>
+  <div style="background-color: violet">div2</div>
+  <div style="background-color: red">div3</div>
+  <div style="background-color: yellow">div4</div>  
+  <div style="background-color: green">div5</div>
+
+  <div style="background-color: blue">div6</div>
+  <div style="background-color: violet">div7</div>
+</div>
+
+</body>
+</html>
