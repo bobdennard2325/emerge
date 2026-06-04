@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import Link from "next/link";
 import { translations, Lang } from "./translations";
+import { useLanguage } from "./LanguageContext";
+
+// ──────────────────────────────────────────────
+// 🔧 TOGGLE: Set to true when you have real data
+const SHOW_STATS = false;
+// ──────────────────────────────────────────────
 
 const flags: Record<Lang, string> = {
   FR: "/img/flag_fr.png",
@@ -9,8 +15,30 @@ const flags: Record<Lang, string> = {
   EN: "/img/flag_en.png",
 };
 
+const statsData: Record<Lang, { label: string; value: string }[]> = {
+  FR: [
+    { label: "Levés pour les startups", value: "0 MAD" },
+    { label: "Investisseurs actifs", value: "0" },
+    { label: "Projets financés", value: "0" },
+    { label: "Taux de succès", value: "0%" },
+  ],
+  EN: [
+    { label: "Raised for startups", value: "0 MAD" },
+    { label: "Active investors", value: "0" },
+    { label: "Funded projects", value: "0" },
+    { label: "Success rate", value: "0%" },
+  ],
+  AR: [
+    { label: "جُمع للشركات الناشئة", value: "0 MAD" },
+    { label: "المستثمرون النشطون", value: "0" },
+    { label: "المشاريع الممولة", value: "0" },
+    { label: "معدل النجاح", value: "0%" },
+  ],
+};
+
 const campaignData = [
   {
+    slug: "greenroots",
     bg: "#e8f5f0", tagBg: "#d0ede4", tagColor: "#0f6e56",
     tag: { FR: "AGRITECH", EN: "AGRITECH", AR: "تكنولوجيا زراعية" },
     title: { FR: "GreenRoots — Irrigation intelligente pour les fermes marocaines", EN: "GreenRoots — Smart irrigation for Moroccan farms", AR: "GreenRoots — الري الذكي للمزارع المغربية" },
@@ -18,6 +46,7 @@ const campaignData = [
     raised: "730 000 MAD", pct: 73, days: 18,
   },
   {
+    slug: "nqodi",
     bg: "#e8f0f8", tagBg: "#d0e0f0", tagColor: "#185fa5",
     tag: { FR: "FINTECH", EN: "FINTECH", AR: "تكنولوجيا مالية" },
     title: { FR: "Nqodi — Paiements mobiles pour les non-bancarisés", EN: "Nqodi — Mobile payments for the unbanked", AR: "Nqodi — المدفوعات المحمولة لغير المصرفيين" },
@@ -25,6 +54,7 @@ const campaignData = [
     raised: "1,8M MAD", pct: 91, days: 6,
   },
   {
+    slug: "solara",
     bg: "#f0f5e8", tagBg: "#d8ecb8", tagColor: "#3b6d11",
     tag: { FR: "CLEANTECH", EN: "CLEANTECH", AR: "تكنولوجيا نظيفة" },
     title: { FR: "Solara — Énergie solaire abordable pour les PME", EN: "Solara — Affordable solar energy for SMEs", AR: "Solara — الطاقة الشمسية الميسورة للمؤسسات الصغيرة" },
@@ -33,26 +63,22 @@ const campaignData = [
   },
 ];
 
+const aiTagline: Record<Lang, string> = {
+  FR: "🤖 1ère plateforme marocaine d'equity crowdfunding propulsée par l'IA",
+  EN: "🤖 Morocco's first AI-powered equity crowdfunding platform",
+  AR: "🤖 أول منصة مغربية للتمويل الجماعي بالأسهم مدعومة بالذكاء الاصطناعي",
+};
+
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("FR");
+  const { lang, setLang } = useLanguage();
   const t = translations[lang];
-
-  useEffect(() => {
-    const saved = localStorage.getItem("emerge-lang") as Lang | null;
-    if (saved && ["FR", "EN", "AR"].includes(saved)) setLang(saved);
-  }, []);
-
-  const switchLang = (l: Lang) => {
-    setLang(l);
-    localStorage.setItem("emerge-lang", l);
-  };
 
   return (
     <main dir={t.dir} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "#f8f9fb", color: "#0f1923", fontSize: "15px" }}>
 
       {/* NAV */}
       <nav style={{ background: "#0f1923", padding: "0 3rem", display: "flex", justifyContent: "space-between", alignItems: "center", height: "68px" }}>
-        <Image src="/img/logo_emerge_cropped.png" alt="Emerge Capital" width={70} height={38} style={{ objectFit: "contain" }} />
+        <Image src="/img/logo_emerge_cropped.png" alt="Emerge Capital" width={70} height={38} style={{ objectFit: "contain", width: "auto", height: "auto" }} />
         <ul style={{ display: "flex", gap: "1.5rem", listStyle: "none" }}>
           {[t.nav.campaigns, t.nav.howItWorks, t.nav.investors, t.nav.about].map(link => (
             <li key={link}>
@@ -69,9 +95,9 @@ export default function Home() {
           </a>
           <div style={{ display: "flex", gap: "8px", borderLeft: "1px solid rgba(255,255,255,0.15)", marginLeft: "0.5rem", paddingLeft: "1rem", alignItems: "center" }}>
             {(["FR", "AR", "EN"] as Lang[]).filter(l => l !== lang).map(l => (
-            <button key={l} onClick={() => switchLang(l)} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, transition: "all 0.2s" }} title={l}>
-            <Image src={flags[l]} alt={l} width={32} height={22} style={{ borderRadius: "4px", display: "block" }} />
-            </button>
+              <button key={l} onClick={() => setLang(l)} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, transition: "all 0.2s" }} title={l}>
+                <img src={flags[l]} alt={l} width={32} height={22} style={{ borderRadius: "4px", display: "block" }} />
+              </button>
             ))}
           </div>
         </div>
@@ -79,10 +105,17 @@ export default function Home() {
 
       {/* HERO */}
       <section style={{ background: "#fff", padding: "5rem 3rem 4rem", textAlign: "center", borderBottom: "1px solid #e8ecf0" }}>
+
+        {/* AI Tagline badge */}
+        <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "linear-gradient(135deg,#0f1923,#2a4a7a)", color: "#5bbdd4", padding: "0.4rem 1.1rem", borderRadius: "100px", fontSize: "0.78rem", fontWeight: 600, marginBottom: "1rem", border: "1px solid #2a4a7a" }}>
+          {aiTagline[lang]}
+        </div>
+
         <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#eaf6fb", color: "#2a6a8a", padding: "0.4rem 1rem", borderRadius: "100px", fontSize: "0.78rem", fontWeight: 600, marginBottom: "1.5rem", border: "1px solid #c0e4f0" }}>
           <span style={{ width: "7px", height: "7px", background: "#5bbdd4", borderRadius: "50%", display: "inline-block" }} />
           {t.hero.badge}
         </div>
+
         <h1 style={{ fontSize: "3rem", fontWeight: 800, lineHeight: 1.1, color: "#0f1923", marginBottom: "1.2rem", maxWidth: "640px", marginLeft: "auto", marginRight: "auto" }}>
           {t.hero.title1}{" "}
           <span style={{ background: "linear-gradient(90deg,#5bbdd4,#2a4a7a)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
@@ -102,6 +135,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* STATS — shown only when SHOW_STATS = true */}
+      {SHOW_STATS && (
+        <section style={{ background: "#0f1923", padding: "3rem", display: "flex", justifyContent: "center", gap: "4rem", flexWrap: "wrap" }}>
+          {statsData[lang].map(stat => (
+            <div key={stat.label} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "2rem", fontWeight: 800, color: "#5bbdd4", marginBottom: "0.3rem" }}>{stat.value}</div>
+              <div style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.55)", fontWeight: 500 }}>{stat.label}</div>
+            </div>
+          ))}
+        </section>
+      )}
+
       {/* CAMPAIGNS */}
       <section style={{ padding: "3.5rem 3rem", maxWidth: "1100px", margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.8rem" }}>
@@ -110,7 +155,9 @@ export default function Home() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.2rem" }}>
           {campaignData.map(c => (
-            <div key={c.tag.EN} style={{ background: "#fff", border: "1px solid #e8ecf0", borderRadius: "14px", overflow: "hidden" }}>
+            <Link key={c.tag.EN} href={`/project/${c.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block", background: "#fff", border: "1px solid #e8ecf0", borderRadius: "14px", overflow: "hidden", transition: "box-shadow 0.2s", cursor: "pointer" }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)")}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}>
               <div style={{ height: "130px", background: c.bg, display: "flex", alignItems: "flex-end", padding: "1rem" }}>
                 <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", padding: "3px 10px", borderRadius: "100px", background: c.tagBg, color: c.tagColor }}>
                   {c.tag[lang]}
@@ -127,7 +174,7 @@ export default function Home() {
                   <span>{c.pct}% · {c.days} {t.campaigns.daysLeft}</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
