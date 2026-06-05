@@ -6,13 +6,29 @@ type LangCtx = { lang: Lang; setLang: (l: Lang) => void };
 
 const LanguageContext = createContext<LangCtx>({ lang: "FR", setLang: () => {} });
 
+function readLangCookie(): Lang {
+  if (typeof document === "undefined") return "FR";
+  const m = document.cookie.match(/emerge-lang=(FR|EN|AR)/);
+  return m ? (m[1] as Lang) : "FR";
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("FR");
 
-  // On first load, restore the saved language from the cookie.
+  // On first load, restore from cookie
   useEffect(() => {
-    const m = document.cookie.match(/emerge-lang=(FR|EN|AR)/);
-    if (m) setLangState(m[1] as Lang);
+    setLangState(readLangCookie());
+  }, []);
+
+  // Fix bfcache: when navigating back, re-read the cookie
+  useEffect(() => {
+    const handlePageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) {
+        setLangState(readLangCookie());
+      }
+    };
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
   }, []);
 
   const setLang = (l: Lang) => {

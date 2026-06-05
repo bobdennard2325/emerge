@@ -80,9 +80,14 @@ export default function Home() {
       <nav style={{ background: "#0f1923", padding: "0 3rem", display: "flex", justifyContent: "space-between", alignItems: "center", height: "68px" }}>
         <Image src="/img/logo_emerge_cropped.png" alt="Emerge Capital" width={70} height={38} style={{ objectFit: "contain", width: "auto", height: "auto" }} />
         <ul style={{ display: "flex", gap: "1.5rem", listStyle: "none" }}>
-          {[t.nav.campaigns, t.nav.howItWorks, t.nav.investors, t.nav.about].map(link => (
-            <li key={link}>
-              <a href="#" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: "0.88rem", fontWeight: 500 }}>{link}</a>
+          {[
+            { label: t.nav.campaigns, href: "/" },
+            { label: t.nav.howItWorks, href: "/how-it-works" },
+            { label: t.nav.investors, href: "/investor" },
+            { label: t.nav.about, href: "#" },
+          ].map(({ label, href }) => (
+            <li key={label}>
+              <Link href={href} style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none", fontSize: "0.82rem", fontWeight: 500 }}>{label}</Link>
             </li>
           ))}
         </ul>
@@ -90,9 +95,9 @@ export default function Home() {
           <a href="#" style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.88rem", fontWeight: 600, textDecoration: "none", padding: "0.5rem 1rem" }}>
             {t.nav.login}
           </a>
-          <a href="#" style={{ background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", padding: "0.55rem 1.3rem", borderRadius: "8px", fontSize: "0.88rem", fontWeight: 600, textDecoration: "none" }}>
+          <Link href="/submit" style={{ background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", padding: "0.55rem 1.3rem", borderRadius: "8px", fontSize: "0.88rem", fontWeight: 600, textDecoration: "none" }}>
             {t.nav.start}
-          </a>
+          </Link>
           <div style={{ display: "flex", gap: "8px", borderLeft: "1px solid rgba(255,255,255,0.15)", marginLeft: "0.5rem", paddingLeft: "1rem", alignItems: "center" }}>
             {(["FR", "AR", "EN"] as Lang[]).filter(l => l !== lang).map(l => (
               <button key={l} onClick={() => setLang(l)} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, transition: "all 0.2s" }} title={l}>
@@ -198,7 +203,8 @@ export default function Home() {
       <footer style={{ background: "#0f1923", color: "#8a96a3", textAlign: "center", padding: "1.5rem", fontSize: "0.78rem" }}>
         © 2026 Emerge Capital · Casablanca, Maroc ·{" "}
         <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</a> ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</a>
+        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</a> ·{" "}
+        <Link href="/glossary" style={{ color: "#5bbdd4", textDecoration: "none" }}>{lang === "FR" ? "Lexique" : lang === "AR" ? "القاموس" : "Glossary"}</Link>
       </footer>
 
     </main>

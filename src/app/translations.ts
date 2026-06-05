@@ -7,7 +7,7 @@ export const translations = {
       investors: "Investisseurs",
       about: "À propos",
       login: "Se connecter",
-      start: "Commencer",
+      start: "Déposer un projet",
     },
     hero: {
       badge: "Plateforme régulée par l'Autorité Marocaine du Marché des Capitaux",
@@ -42,7 +42,7 @@ export const translations = {
       investors: "Investors",
       about: "About",
       login: "Sign in",
-      start: "Get started",
+      start: "Submit a project",
     },
     hero: {
       badge: "Regulated platform by the Moroccan Capital Markets Authority",
@@ -77,7 +77,7 @@ export const translations = {
       investors: "المستثمرون",
       about: "من نحن",
       login: "تسجيل الدخول",
-      start: "ابدأ الآن",
+      start: "تقديم مشروع",
     },
     hero: {
       badge: "منصة خاضعة لرقابة هيئة مسالك رأس المال المغربية",
