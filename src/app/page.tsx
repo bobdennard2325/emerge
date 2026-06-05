@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { translations, Lang } from "./translations";
@@ -69,9 +71,73 @@ const aiTagline: Record<Lang, string> = {
   AR: "🤖 أول منصة مغربية للتمويل الجماعي بالأسهم مدعومة بالذكاء الاصطناعي",
 };
 
+// ─── Demo accounts ───────────────────────────────────────────────────────────
+type DemoUser = {
+  username: string;
+  password: string;
+  type: "investor" | "entrepreneur";
+  state: "incomplete" | "profiled" | "invested" | "submitted" | "live";
+  redirect: string;
+  label: Record<string, string>;
+};
+
+const DEMO_USERS: DemoUser[] = [
+  {
+    username: "investor_new", password: "pass",
+    type: "investor", state: "incomplete", redirect: "/investor",
+    label: { FR: "Investisseur — profil incomplet", EN: "Investor — incomplete profile", AR: "مستثمر — ملف غير مكتمل" },
+  },
+  {
+    username: "investor_active", password: "pass",
+    type: "investor", state: "profiled", redirect: "/#campaigns",
+    label: { FR: "Investisseur — profil complet, aucun investissement", EN: "Investor — profile complete, no investment yet", AR: "مستثمر — ملف مكتمل، لا استثمارات بعد" },
+  },
+  {
+    username: "investor_portfolio", password: "pass",
+    type: "investor", state: "invested", redirect: "/portfolio",
+    label: { FR: "Investisseur — portefeuille actif", EN: "Investor — active portfolio", AR: "مستثمر — محفظة نشطة" },
+  },
+  {
+    username: "entrepreneur_submitted", password: "pass",
+    type: "entrepreneur", state: "submitted", redirect: "/status",
+    label: { FR: "Entrepreneur — dossier soumis", EN: "Entrepreneur — file submitted", AR: "رياديّ — ملف مقدم" },
+  },
+];
+
 export default function Home() {
   const { lang, setLang } = useLanguage();
   const t = translations[lang];
+  const router = useRouter();
+  const [showLogin, setShowLogin] = useState(false);
+  const [loginUser, setLoginUser] = useState("");
+  const [loginPass, setLoginPass] = useState("");
+  const [loginError, setLoginError] = useState(false);
+  const [loginLoading, setLoginLoading] = useState(false);
+
+  const handleLogin = () => {
+    const user = DEMO_USERS.find(u => u.username === loginUser.trim() && u.password === loginPass);
+    if (!user) { setLoginError(true); return; }
+    setLoginError(false);
+    setLoginLoading(true);
+    setTimeout(() => {
+      setShowLogin(false);
+      setLoginLoading(false);
+      setLoginUser(""); setLoginPass("");
+      router.push(user.redirect);
+    }, 800);
+  };
+
+  const ui_login = {
+    title:       { FR: "Connexion",                        EN: "Sign in",                         AR: "تسجيل الدخول" },
+    username:    { FR: "Nom d'utilisateur",                EN: "Username",                        AR: "اسم المستخدم" },
+    password:    { FR: "Mot de passe",                     EN: "Password",                        AR: "كلمة المرور" },
+    submit:      { FR: "Se connecter",                     EN: "Sign in",                         AR: "تسجيل الدخول" },
+    error:       { FR: "Identifiants incorrects.",         EN: "Incorrect credentials.",          AR: "بيانات الاعتماد غير صحيحة." },
+    demo:        { FR: "Comptes de démonstration",         EN: "Demo accounts",                   AR: "حسابات العرض التوضيحي" },
+    noAccount:   { FR: "Pas encore de compte ?",           EN: "No account yet?",                 AR: "ليس لديك حساب؟" },
+    register:    { FR: "Créer un compte investisseur",     EN: "Create an investor account",      AR: "إنشاء حساب مستثمر" },
+    orSubmit:    { FR: "ou soumettre un projet →",         EN: "or submit a project →",           AR: "أو تقديم مشروع ←" },
+  };
 
   return (
     <main dir={t.dir} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "#f8f9fb", color: "#0f1923", fontSize: "15px" }}>
@@ -84,7 +150,7 @@ export default function Home() {
             { label: t.nav.campaigns, href: "/" },
             { label: t.nav.howItWorks, href: "/how-it-works" },
             { label: t.nav.investors, href: "/investor" },
-            { label: t.nav.about, href: "#" },
+            { label: t.nav.about, href: "/about" },
           ].map(({ label, href }) => (
             <li key={label}>
               <Link href={href} style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none", fontSize: "0.82rem", fontWeight: 500 }}>{label}</Link>
@@ -92,9 +158,9 @@ export default function Home() {
           ))}
         </ul>
         <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-          <a href="#" style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.88rem", fontWeight: 600, textDecoration: "none", padding: "0.5rem 1rem" }}>
+          <button onClick={() => setShowLogin(true)} style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.88rem", fontWeight: 600, background: "none", border: "none", cursor: "pointer", padding: "0.5rem 1rem" }}>
             {t.nav.login}
-          </a>
+          </button>
           <Link href="/submit" style={{ background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", padding: "0.55rem 1.3rem", borderRadius: "8px", fontSize: "0.88rem", fontWeight: 600, textDecoration: "none" }}>
             {t.nav.start}
           </Link>
@@ -131,12 +197,12 @@ export default function Home() {
           {t.hero.subtitle}
         </p>
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", alignItems: "center" }}>
-          <a href="#" style={{ background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", padding: "0.85rem 2.2rem", borderRadius: "10px", fontSize: "0.95rem", fontWeight: 700, textDecoration: "none" }}>
+          <a href="#campaigns" style={{ background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", padding: "0.85rem 2.2rem", borderRadius: "10px", fontSize: "0.95rem", fontWeight: 700, textDecoration: "none" }}>
             {t.hero.cta1}
           </a>
-          <a href="#" style={{ border: "1.5px solid #2a4a7a", color: "#2a4a7a", padding: "0.85rem 2rem", borderRadius: "10px", fontSize: "0.95rem", fontWeight: 600, textDecoration: "none" }}>
+          <Link href="/how-it-works" style={{ border: "1.5px solid #2a4a7a", color: "#2a4a7a", padding: "0.85rem 2rem", borderRadius: "10px", fontSize: "0.95rem", fontWeight: 600, textDecoration: "none" }}>
             {t.hero.cta2}
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -152,8 +218,28 @@ export default function Home() {
         </section>
       )}
 
+      {/* NEW TO INVESTING BANNER */}
+      <section style={{ padding: "1.5rem 3rem", maxWidth: "1100px", margin: "0 auto" }}>
+        <div style={{ background: "linear-gradient(135deg,#0f1923 0%,#1a3a6a 60%,#0f2a4a 100%)", borderRadius: "16px", padding: "1.5rem 2rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            <div style={{ width: "44px", height: "44px", borderRadius: "12px", background: "rgba(91,189,212,0.15)", border: "1px solid rgba(91,189,212,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.3rem", flexShrink: 0 }}>🎓</div>
+            <div>
+              <div style={{ fontSize: "0.92rem", fontWeight: 700, color: "#fff", marginBottom: "0.2rem" }}>
+                {lang === "FR" ? "Nouveau sur EMERGE ?" : lang === "AR" ? "جديد على EMERGE؟" : "New to EMERGE?"}
+              </div>
+              <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>
+                {lang === "FR" ? "Comprenez les termes clés — crowdfunding en capital, valorisation, risques & rendements — avant d'investir." : lang === "AR" ? "افهم المصطلحات الرئيسية — التمويل الجماعي بالأسهم، التقييم، المخاطر والعوائد — قبل الاستثمار." : "Understand the key terms — equity crowdfunding, valuation, risk & returns — before investing."}
+              </div>
+            </div>
+          </div>
+          <Link href="/glossary" style={{ background: "rgba(91,189,212,0.15)", border: "1px solid rgba(91,189,212,0.4)", color: "#5bbdd4", padding: "0.6rem 1.4rem", borderRadius: "8px", fontSize: "0.82rem", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0 }}>
+            {lang === "FR" ? "Voir le lexique →" : lang === "AR" ? "عرض القاموس ←" : "View glossary →"}
+          </Link>
+        </div>
+      </section>
+
       {/* CAMPAIGNS */}
-      <section style={{ padding: "3.5rem 3rem", maxWidth: "1100px", margin: "0 auto" }}>
+      <section id="campaigns" style={{ padding: "3.5rem 3rem", maxWidth: "1100px", margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.8rem" }}>
           <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#0f1923" }}>{t.campaigns.title}</div>
           <a href="#" style={{ fontSize: "0.85rem", color: "#2a4a7a", fontWeight: 600, textDecoration: "none" }}>{t.campaigns.seeAll}</a>
@@ -206,6 +292,69 @@ export default function Home() {
         <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</a> ·{" "}
         <Link href="/glossary" style={{ color: "#5bbdd4", textDecoration: "none" }}>{lang === "FR" ? "Lexique" : lang === "AR" ? "القاموس" : "Glossary"}</Link>
       </footer>
+
+      {/* LOGIN MODAL */}
+      {showLogin && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}
+          onClick={e => { if (e.target === e.currentTarget) setShowLogin(false); }}>
+          <div style={{ background: "#fff", borderRadius: "18px", padding: "2rem", width: "100%", maxWidth: "420px", boxShadow: "0 24px 60px rgba(0,0,0,0.2)" }} dir={t.dir}>
+
+            {/* Header */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
+              <h2 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#0f1923", margin: 0 }}>{ui_login.title[lang]}</h2>
+              <button onClick={() => setShowLogin(false)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: "1.2rem", color: "#8a96a3", lineHeight: 1 }}>✕</button>
+            </div>
+
+            {/* Fields */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1rem" }}>
+              <div>
+                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, color: "#4a5568", marginBottom: "0.35rem" }}>{ui_login.username[lang]}</label>
+                <input value={loginUser} onChange={e => { setLoginUser(e.target.value); setLoginError(false); }}
+                  onKeyDown={e => e.key === "Enter" && handleLogin()}
+                  style={{ width: "100%", padding: "0.7rem 0.9rem", borderRadius: "8px", border: `1.5px solid ${loginError ? "#e05c5c" : "#e8ecf0"}`, fontSize: "0.88rem", outline: "none", boxSizing: "border-box", fontFamily: "inherit" }}
+                  placeholder="investor_active" />
+              </div>
+              <div>
+                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, color: "#4a5568", marginBottom: "0.35rem" }}>{ui_login.password[lang]}</label>
+                <input type="password" value={loginPass} onChange={e => { setLoginPass(e.target.value); setLoginError(false); }}
+                  onKeyDown={e => e.key === "Enter" && handleLogin()}
+                  style={{ width: "100%", padding: "0.7rem 0.9rem", borderRadius: "8px", border: `1.5px solid ${loginError ? "#e05c5c" : "#e8ecf0"}`, fontSize: "0.88rem", outline: "none", boxSizing: "border-box", fontFamily: "inherit" }}
+                  placeholder="pass" />
+              </div>
+            </div>
+
+            {loginError && (
+              <div style={{ background: "#fdf0f0", border: "1px solid #f0b0b0", borderRadius: "8px", padding: "0.6rem 0.9rem", marginBottom: "0.75rem", fontSize: "0.78rem", color: "#c0392b" }}>
+                ⚠ {ui_login.error[lang]}
+              </div>
+            )}
+
+            <button onClick={handleLogin} disabled={loginLoading}
+              style={{ width: "100%", background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", border: "none", borderRadius: "10px", padding: "0.85rem", fontSize: "0.95rem", fontWeight: 700, cursor: loginLoading ? "wait" : "pointer", marginBottom: "1.25rem" }}>
+              {loginLoading ? "…" : ui_login.submit[lang]}
+            </button>
+
+            {/* Demo accounts hint */}
+            <div style={{ background: "#f8f9fb", borderRadius: "10px", padding: "0.9rem 1rem", marginBottom: "1.25rem" }}>
+              <div style={{ fontSize: "0.7rem", fontWeight: 700, color: "#8a96a3", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.5rem" }}>{ui_login.demo[lang]}</div>
+              {DEMO_USERS.map(u => (
+                <button key={u.username} onClick={() => { setLoginUser(u.username); setLoginPass(u.password); setLoginError(false); }}
+                  style={{ display: "block", width: "100%", textAlign: lang === "AR" ? "right" : "left", background: loginUser === u.username ? "#eaf6fb" : "none", border: "none", borderRadius: "6px", padding: "0.4rem 0.5rem", cursor: "pointer", marginBottom: "2px" }}>
+                  <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#2a4a7a", fontFamily: "monospace" }}>{u.username}</span>
+                  <span style={{ fontSize: "0.7rem", color: "#8a96a3", marginLeft: lang === "AR" ? 0 : "8px", marginRight: lang === "AR" ? "8px" : 0 }}>— {u.label[lang]}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Register links */}
+            <div style={{ textAlign: "center", fontSize: "0.78rem", color: "#8a96a3" }}>
+              {ui_login.noAccount[lang]}{" "}
+              <Link href="/investor" onClick={() => setShowLogin(false)} style={{ color: "#2a4a7a", fontWeight: 600, textDecoration: "none" }}>{ui_login.register[lang]}</Link>
+              {" "}<Link href="/submit" onClick={() => setShowLogin(false)} style={{ color: "#5bbdd4", fontWeight: 600, textDecoration: "none" }}>{ui_login.orSubmit[lang]}</Link>
+            </div>
+          </div>
+        </div>
+      )}
 
     </main>
   );
