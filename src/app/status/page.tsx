@@ -200,7 +200,13 @@ export default function SubmissionStatus() {
             <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "#0f1923" }}>{ui.nextStep[lang]}</span>
           </div>
           <p style={{ fontSize: "0.84rem", color: "#4a5568", lineHeight: 1.7, margin: "0 0 1rem" }}>{ui.nextDesc[lang]}</p>
-          <Link href="/submit" style={{ fontSize: "0.82rem", fontWeight: 600, color: "#2a4a7a", textDecoration: "none" }}>{ui.improve[lang]}</Link>
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            <Link href="/submit" style={{ fontSize: "0.82rem", fontWeight: 600, color: "#2a4a7a", textDecoration: "none" }}>{ui.improve[lang]}</Link>
+            <span style={{ color: "#e8ecf0" }}>·</span>
+            <Link href="/campaign-builder" style={{ fontSize: "0.82rem", fontWeight: 600, color: "#5bbdd4", textDecoration: "none" }}>
+              {lang === "FR" ? "Préparer ma page campagne →" : lang === "AR" ? "إعداد صفحة حملتي ←" : "Set up my campaign page →"}
+            </Link>
+          </div>
         </div>
 
         {/* Disclaimer */}
