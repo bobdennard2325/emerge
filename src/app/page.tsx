@@ -327,7 +327,8 @@ export default function Home() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "none"; }}>
               {/* Cover hero */}
-              <div style={{ position: "relative", height: "140px", background: camp.gradient, overflow: "hidden" }}>
+              <div style={{ position: "relative", height: "140px", overflow: "hidden", background: "#0f1923" }}>
+              <img src={`/img/cover_${camp.slug}.svg`} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%)" }} />
                 {/* Logo */}
                 <div style={{ position: "absolute", top: "0.75rem", left: "0.75rem", width: "42px", height: "42px", borderRadius: "10px", background: camp.logoColor, border: "2px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.7rem", fontWeight: 900, color: "#fff" }}>

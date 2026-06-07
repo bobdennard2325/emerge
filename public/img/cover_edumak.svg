@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <rect width="800" height="340" fill="#06020f"/>
+  <rect x="0" y="0" width="800" height="340" fill="#0a0318" opacity="0.7"/>
+  <circle cx="120" cy="80" r="1.5" fill="#e0d0ff" opacity="0.8"/>
+  <circle cx="240" cy="50" r="2" fill="#e0d0ff" opacity="0.7"/>
+  <circle cx="380" cy="30" r="1.5" fill="#e0d0ff" opacity="0.9"/>
+  <circle cx="500" cy="60" r="1" fill="#e0d0ff" opacity="0.6"/>
+  <circle cx="630" cy="40" r="2" fill="#e0d0ff" opacity="0.8"/>
+  <circle cx="720" cy="70" r="1.5" fill="#e0d0ff" opacity="0.7"/>
+  <circle cx="60" cy="130" r="1" fill="#c0a0ff" opacity="0.6"/>
+  <circle cx="180" cy="110" r="1.5" fill="#c0a0ff" opacity="0.7"/>
+  <circle cx="310" cy="95" r="1" fill="#c0a0ff" opacity="0.5"/>
+  <circle cx="450" cy="105" r="1.5" fill="#c0a0ff" opacity="0.7"/>
+  <circle cx="570" cy="90" r="1" fill="#c0a0ff" opacity="0.6"/>
+  <circle cx="680" cy="115" r="2" fill="#c0a0ff" opacity="0.8"/>
+  <circle cx="760" cy="95" r="1" fill="#c0a0ff" opacity="0.5"/>
+  <circle cx="400" cy="170" r="60" fill="#2a0d50" opacity="0.5"/>
+  <circle cx="400" cy="170" r="40" fill="#3a1470" opacity="0.6"/>
+  <rect x="360" y="145" width="80" height="55" rx="4" fill="none" stroke="#9060e0" stroke-width="1.5" opacity="0.6"/>
+  <line x1="400" y1="145" x2="400" y2="200" stroke="#9060e0" stroke-width="1" opacity="0.5"/>
+  <line x1="360" y1="163" x2="440" y2="163" stroke="#9060e0" stroke-width="0.5" opacity="0.4"/>
+  <line x1="360" y1="175" x2="440" y2="175" stroke="#9060e0" stroke-width="0.5" opacity="0.4"/>
+  <line x1="360" y1="187" x2="440" y2="187" stroke="#9060e0" stroke-width="0.5" opacity="0.4"/>
+  <path d="M440 145 l8 -12 l5 4" fill="none" stroke="#c0a0ff" stroke-width="1.5" opacity="0.7" stroke-linecap="round"/>
+  <circle cx="200" cy="240" r="25" fill="none" stroke="#5bbdd4" stroke-width="1" opacity="0.4"/>
+  <circle cx="600" cy="240" r="25" fill="none" stroke="#5bbdd4" stroke-width="1" opacity="0.4"/>
+  <path d="M200 240 Q400 200 600 240" fill="none" stroke="#5bbdd4" stroke-width="1" stroke-dasharray="5 4" opacity="0.4"/>
+  <rect x="0" y="0" width="800" height="340" fill="url(#em-ov)"/>
+  <defs>
+    <linearGradient id="em-ov" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#06020f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#06020f" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#06020f" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+</svg>

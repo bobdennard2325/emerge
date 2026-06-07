@@ -205,7 +205,7 @@ function PitchFilm({ title, lang }: { title: string; lang: Lang }) {
     <div style={{ position: "relative", borderRadius: "14px", overflow: "hidden", background: "#0f1923", aspectRatio: "16/9", cursor: "pointer" }}
       onClick={() => setPlaying(!playing)}>
       {/* Gradient background simulating a farm landscape */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#1a2a0a 0%,#3a5a1a 40%,#2a4a10 70%,#1a2a0a 100%)" }} />
+      <img src={`/img/cover_solara.svg`} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
       {/* Decorative overlay grid */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg,rgba(91,189,212,0.04) 0px,transparent 1px,transparent 40px,rgba(91,189,212,0.04) 40px), repeating-linear-gradient(90deg,rgba(91,189,212,0.04) 0px,transparent 1px,transparent 40px,rgba(91,189,212,0.04) 40px)" }} />
       {/* Content */}

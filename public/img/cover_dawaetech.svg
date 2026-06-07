@@ -1,0 +1,34 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <rect width="800" height="340" fill="#0f0510"/>
+  <rect x="0" y="0" width="800" height="340" fill="#1a0514" opacity="0.8"/>
+  <circle cx="150" cy="170" r="120" fill="none" stroke="#8a1a3a" stroke-width="1" opacity="0.3"/>
+  <circle cx="150" cy="170" r="80" fill="none" stroke="#8a1a3a" stroke-width="1" opacity="0.25"/>
+  <circle cx="150" cy="170" r="40" fill="none" stroke="#8a1a3a" stroke-width="1.5" opacity="0.35"/>
+  <circle cx="650" cy="170" r="120" fill="none" stroke="#5bbdd4" stroke-width="1" opacity="0.25"/>
+  <circle cx="650" cy="170" r="80" fill="none" stroke="#5bbdd4" stroke-width="1" opacity="0.2"/>
+  <circle cx="650" cy="170" r="40" fill="none" stroke="#5bbdd4" stroke-width="1.5" opacity="0.3"/>
+  <rect x="380" y="130" width="40" height="80" rx="8" fill="#8a1a3a" opacity="0.7"/>
+  <rect x="360" y="150" width="80" height="40" rx="8" fill="#8a1a3a" opacity="0.7"/>
+  <circle cx="140" cy="80" r="5" fill="#5bbdd4" opacity="0.8"/>
+  <circle cx="220" cy="110" r="4" fill="#5bbdd4" opacity="0.7"/>
+  <circle cx="300" cy="75" r="5" fill="#5bbdd4" opacity="0.8"/>
+  <circle cx="380" cy="95" r="4" fill="#5bbdd4" opacity="0.7"/>
+  <circle cx="500" cy="80" r="5" fill="#5bbdd4" opacity="0.8"/>
+  <circle cx="600" cy="95" r="4" fill="#5bbdd4" opacity="0.7"/>
+  <circle cx="680" cy="78" r="5" fill="#5bbdd4" opacity="0.8"/>
+  <path d="M140 80 Q180 65 220 110 Q260 90 300 75 Q340 85 380 95 Q440 82 500 80 Q550 87 600 95 Q640 86 680 78" fill="none" stroke="#5bbdd4" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="300" cy="240" r="6" fill="#8a1a3a" opacity="0.8"/>
+  <circle cx="380" cy="260" r="5" fill="#8a1a3a" opacity="0.7"/>
+  <circle cx="460" cy="245" r="6" fill="#8a1a3a" opacity="0.8"/>
+  <circle cx="540" cy="258" r="5" fill="#8a1a3a" opacity="0.7"/>
+  <circle cx="620" cy="242" r="6" fill="#8a1a3a" opacity="0.8"/>
+  <path d="M300 240 Q340 255 380 260 Q420 252 460 245 Q500 253 540 258 Q580 250 620 242" fill="none" stroke="#8a1a3a" stroke-width="1.5" opacity="0.5"/>
+  <rect x="0" y="0" width="800" height="340" fill="url(#dt-ov)"/>
+  <defs>
+    <linearGradient id="dt-ov" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f0510" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#0f0510" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0f0510" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <rect width="800" height="340" fill="#1a0800"/>
+  <rect x="0" y="190" width="800" height="150" fill="#3a1800"/>
+  <circle cx="400" cy="195" r="55" fill="#e06010" opacity="0.9"/>
+  <circle cx="400" cy="195" r="80" fill="#c04000" opacity="0.35"/>
+  <circle cx="400" cy="195" r="110" fill="#a02800" opacity="0.2"/>
+  <defs>
+    <linearGradient id="sol-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f0500"/>
+      <stop offset="40%" stop-color="#3a1200"/>
+      <stop offset="70%" stop-color="#7a2800"/>
+      <stop offset="100%" stop-color="#c05000"/>
+    </linearGradient>
+    <linearGradient id="sol-ov" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f0500" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#0f0500" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0f0500" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="800" height="340" fill="url(#sol-sky)" opacity="0.7"/>
+  <line x1="100" y1="195" x2="700" y2="195" stroke="#e06010" stroke-width="1" opacity="0.4"/>
+  <rect x="80" y="230" width="80" height="50" rx="3" fill="#1e0c00" stroke="#5a2a00" stroke-width="1"/>
+  <rect x="85" y="233" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="122" y="233" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="85" y="255" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="122" y="255" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="220" y="235" width="80" height="50" rx="3" fill="#1e0c00" stroke="#5a2a00" stroke-width="1"/>
+  <rect x="225" y="238" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="262" y="238" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="225" y="260" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="262" y="260" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="460" y="238" width="80" height="50" rx="3" fill="#1e0c00" stroke="#5a2a00" stroke-width="1"/>
+  <rect x="465" y="241" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="502" y="241" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="465" y="263" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="502" y="263" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="620" y="232" width="80" height="50" rx="3" fill="#1e0c00" stroke="#5a2a00" stroke-width="1"/>
+  <rect x="625" y="235" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="662" y="235" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="625" y="257" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="662" y="257" width="35" height="20" rx="2" fill="#2a1400" stroke="#6a3a00" stroke-width="0.5"/>
+  <rect x="0" y="0" width="800" height="340" fill="url(#sol-ov)"/>
+</svg>

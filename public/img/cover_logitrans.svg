@@ -1,0 +1,36 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <rect width="800" height="340" fill="#080500"/>
+  <rect x="0" y="0" width="800" height="340" fill="#140a00" opacity="0.6"/>
+  <line x1="0" y1="170" x2="800" y2="170" stroke="#4a3000" stroke-width="40"/>
+  <line x1="400" y1="0" x2="400" y2="340" stroke="#4a3000" stroke-width="40"/>
+  <line x1="0" y1="85" x2="800" y2="85" stroke="#3a2400" stroke-width="20"/>
+  <line x1="0" y1="255" x2="800" y2="255" stroke="#3a2400" stroke-width="20"/>
+  <line x1="200" y1="0" x2="200" y2="340" stroke="#3a2400" stroke-width="20"/>
+  <line x1="600" y1="0" x2="600" y2="340" stroke="#3a2400" stroke-width="20"/>
+  <line x1="0" y1="170" x2="800" y2="170" stroke="#5a3800" stroke-width="2" stroke-dasharray="20 15"/>
+  <line x1="400" y1="0" x2="400" y2="340" stroke="#5a3800" stroke-width="2" stroke-dasharray="20 15"/>
+  <circle cx="200" cy="85" r="8" fill="#c87a00" opacity="0.9"/>
+  <circle cx="400" cy="85" r="8" fill="#c87a00" opacity="0.9"/>
+  <circle cx="600" cy="85" r="8" fill="#c87a00" opacity="0.9"/>
+  <circle cx="200" cy="170" r="8" fill="#c87a00" opacity="0.9"/>
+  <circle cx="400" cy="170" r="10" fill="#e09020" opacity="1"/>
+  <circle cx="600" cy="170" r="8" fill="#c87a00" opacity="0.9"/>
+  <circle cx="200" cy="255" r="8" fill="#c87a00" opacity="0.9"/>
+  <circle cx="400" cy="255" r="8" fill="#c87a00" opacity="0.9"/>
+  <circle cx="600" cy="255" r="8" fill="#c87a00" opacity="0.9"/>
+  <path d="M200 85 Q300 127 400 170" fill="none" stroke="#e09020" stroke-width="2" opacity="0.7" stroke-dasharray="6 4"/>
+  <path d="M400 170 Q500 212 600 255" fill="none" stroke="#e09020" stroke-width="2" opacity="0.7" stroke-dasharray="6 4"/>
+  <path d="M200 255 Q300 212 400 170" fill="none" stroke="#c87a00" stroke-width="1.5" opacity="0.5" stroke-dasharray="6 4"/>
+  <circle cx="100" cy="40" r="4" fill="#8a6a00" opacity="0.7"/>
+  <circle cx="700" cy="300" r="4" fill="#8a6a00" opacity="0.7"/>
+  <circle cx="700" cy="40" r="4" fill="#8a6a00" opacity="0.7"/>
+  <circle cx="100" cy="300" r="4" fill="#8a6a00" opacity="0.7"/>
+  <rect x="0" y="0" width="800" height="340" fill="url(#lt-ov)"/>
+  <defs>
+    <linearGradient id="lt-ov" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080500" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#080500" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#080500" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+</svg>
