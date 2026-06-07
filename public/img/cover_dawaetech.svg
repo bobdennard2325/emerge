@@ -1,34 +1,54 @@
 <svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-  <rect width="800" height="340" fill="#0f0510"/>
-  <rect x="0" y="0" width="800" height="340" fill="#1a0514" opacity="0.8"/>
-  <circle cx="150" cy="170" r="120" fill="none" stroke="#8a1a3a" stroke-width="1" opacity="0.3"/>
-  <circle cx="150" cy="170" r="80" fill="none" stroke="#8a1a3a" stroke-width="1" opacity="0.25"/>
-  <circle cx="150" cy="170" r="40" fill="none" stroke="#8a1a3a" stroke-width="1.5" opacity="0.35"/>
-  <circle cx="650" cy="170" r="120" fill="none" stroke="#5bbdd4" stroke-width="1" opacity="0.25"/>
-  <circle cx="650" cy="170" r="80" fill="none" stroke="#5bbdd4" stroke-width="1" opacity="0.2"/>
-  <circle cx="650" cy="170" r="40" fill="none" stroke="#5bbdd4" stroke-width="1.5" opacity="0.3"/>
-  <rect x="380" y="130" width="40" height="80" rx="8" fill="#8a1a3a" opacity="0.7"/>
-  <rect x="360" y="150" width="80" height="40" rx="8" fill="#8a1a3a" opacity="0.7"/>
-  <circle cx="140" cy="80" r="5" fill="#5bbdd4" opacity="0.8"/>
-  <circle cx="220" cy="110" r="4" fill="#5bbdd4" opacity="0.7"/>
-  <circle cx="300" cy="75" r="5" fill="#5bbdd4" opacity="0.8"/>
-  <circle cx="380" cy="95" r="4" fill="#5bbdd4" opacity="0.7"/>
-  <circle cx="500" cy="80" r="5" fill="#5bbdd4" opacity="0.8"/>
-  <circle cx="600" cy="95" r="4" fill="#5bbdd4" opacity="0.7"/>
-  <circle cx="680" cy="78" r="5" fill="#5bbdd4" opacity="0.8"/>
-  <path d="M140 80 Q180 65 220 110 Q260 90 300 75 Q340 85 380 95 Q440 82 500 80 Q550 87 600 95 Q640 86 680 78" fill="none" stroke="#5bbdd4" stroke-width="1.5" opacity="0.5"/>
-  <circle cx="300" cy="240" r="6" fill="#8a1a3a" opacity="0.8"/>
-  <circle cx="380" cy="260" r="5" fill="#8a1a3a" opacity="0.7"/>
-  <circle cx="460" cy="245" r="6" fill="#8a1a3a" opacity="0.8"/>
-  <circle cx="540" cy="258" r="5" fill="#8a1a3a" opacity="0.7"/>
-  <circle cx="620" cy="242" r="6" fill="#8a1a3a" opacity="0.8"/>
-  <path d="M300 240 Q340 255 380 260 Q420 252 460 245 Q500 253 540 258 Q580 250 620 242" fill="none" stroke="#8a1a3a" stroke-width="1.5" opacity="0.5"/>
-  <rect x="0" y="0" width="800" height="340" fill="url(#dt-ov)"/>
   <defs>
-    <linearGradient id="dt-ov" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0f0510" stop-opacity="0.5"/>
-      <stop offset="50%" stop-color="#0f0510" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#0f0510" stop-opacity="0.8"/>
+    <linearGradient id="skyD" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F4F8"/>
+      <stop offset="100%" stop-color="#C8E8F4"/>
+    </linearGradient>
+    <linearGradient id="ovD" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001830" stop-opacity="0.28"/>
+      <stop offset="50%" stop-color="#001830" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#001830" stop-opacity="0.65"/>
     </linearGradient>
   </defs>
+  <rect width="800" height="340" fill="url(#skyD)"/>
+  <rect x="160" y="80" width="480" height="260" rx="6" fill="#F0F8FF" stroke="#D0E8F4" stroke-width="2"/>
+  <g fill="#B8D8F0" opacity="0.8">
+    <rect x="188" y="110" width="32" height="24" rx="3"/><rect x="232" y="110" width="32" height="24" rx="3"/>
+    <rect x="276" y="110" width="32" height="24" rx="3"/><rect x="320" y="110" width="32" height="24" rx="3"/>
+    <rect x="364" y="110" width="32" height="24" rx="3"/><rect x="408" y="110" width="32" height="24" rx="3"/>
+    <rect x="452" y="110" width="32" height="24" rx="3"/><rect x="496" y="110" width="32" height="24" rx="3"/>
+    <rect x="540" y="110" width="32" height="24" rx="3"/><rect x="584" y="110" width="32" height="24" rx="3"/>
+    <rect x="188" y="148" width="32" height="24" rx="3"/><rect x="232" y="148" width="32" height="24" rx="3"/>
+    <rect x="276" y="148" width="32" height="24" rx="3"/><rect x="364" y="148" width="32" height="24" rx="3"/>
+    <rect x="408" y="148" width="32" height="24" rx="3"/><rect x="452" y="148" width="32" height="24" rx="3"/>
+    <rect x="496" y="148" width="32" height="24" rx="3"/><rect x="540" y="148" width="32" height="24" rx="3"/>
+    <rect x="584" y="148" width="32" height="24" rx="3"/><rect x="188" y="186" width="32" height="24" rx="3"/>
+    <rect x="232" y="186" width="32" height="24" rx="3"/><rect x="452" y="186" width="32" height="24" rx="3"/>
+    <rect x="496" y="186" width="32" height="24" rx="3"/><rect x="540" y="186" width="32" height="24" rx="3"/>
+    <rect x="584" y="186" width="32" height="24" rx="3"/>
+  </g>
+  <rect x="372" y="28" width="40" height="100" rx="6" fill="#E53030"/>
+  <rect x="342" y="58" width="100" height="40" rx="6" fill="#E53030"/>
+  <rect x="344" y="230" width="112" height="110" rx="4" fill="#D0E8F8"/>
+  <rect x="366" y="248" width="68" height="92" rx="3" fill="#B0D0F0"/>
+  <rect x="0" y="316" width="800" height="24" fill="#CBD8E0"/>
+  <rect x="0" y="316" width="800" height="3" fill="#A8C0CC"/>
+  <rect x="560" y="140" width="80" height="140" rx="12" fill="#1a2a3a" stroke="#2a4a6a" stroke-width="2"/>
+  <rect x="570" y="154" width="60" height="96" rx="6" fill="#0a1f35"/>
+  <polyline points="574,202 588,202 596,178 604,224 612,188 620,202 628,202" fill="none" stroke="#5bbdd4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="582" cy="168" r="7" fill="#E53030" opacity="0.9"/>
+  <circle cx="600" cy="168" r="7" fill="#5bbdd4" opacity="0.9"/>
+  <circle cx="618" cy="168" r="7" fill="#2a7a4a" opacity="0.9"/>
+  <rect x="30" y="254" width="96" height="52" rx="5" fill="white" stroke="#E0E0E0" stroke-width="1.5"/>
+  <rect x="30" y="254" width="38" height="52" rx="5" fill="#D0E8F8"/>
+  <circle cx="52" cy="308" r="13" fill="#333"/>
+  <circle cx="52" cy="308" r="8" fill="#888"/>
+  <circle cx="105" cy="308" r="13" fill="#333"/>
+  <circle cx="105" cy="308" r="8" fill="#888"/>
+  <rect x="56" y="268" width="16" height="24" rx="2" fill="#E53030"/>
+  <rect x="50" y="274" width="28" height="12" rx="2" fill="#E53030"/>
+  <circle cx="660" cy="80" r="40" fill="white" stroke="#E0E8F0" stroke-width="2"/>
+  <circle cx="660" cy="80" r="32" fill="#F8FCFF"/>
+  <polyline points="640,80 652,80 658,66 664,94 670,72 676,80 680,80" fill="none" stroke="#5bbdd4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="800" height="340" fill="url(#ovD)"/>
 </svg>
