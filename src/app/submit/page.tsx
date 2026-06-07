@@ -727,7 +727,7 @@ export default function Submit() {
                       <input type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx" style={{ display: "none" }}
                         onChange={e => {
                           const file = e.target.files?.[0];
-                          if (file) set("uploadedFiles", { ...form.uploadedFiles, [key]: file.name });
+                          if (file) setForm(f => ({ ...f, uploadedFiles: { ...f.uploadedFiles, [key]: file.name } }));
                         }} />
                     </label>
                   </div>
@@ -742,7 +742,7 @@ export default function Submit() {
                   <input style={{ ...inputStyle, flex: 1 }} value={doc.name} onChange={e => {
                     const updated = [...form.extraDocs];
                     updated[i] = { ...updated[i], name: e.target.value };
-                    set("extraDocs", updated as any);
+                    setForm(f => ({ ...f, extraDocs: updated }));
                   }} placeholder={ui.docsExtraName[lang]} />
                   <label style={{ cursor: "pointer", fontSize: "0.75rem", fontWeight: 600, color: doc.filename ? "#2a7a4a" : "#2a4a7a", background: doc.filename ? "#d4edda" : "#eaf6fb", padding: "8px 12px", borderRadius: "8px", border: `1px solid ${doc.filename ? "#2a7a4a" : "#5bbdd4"}`, whiteSpace: "nowrap", flexShrink: 0 }}>
                     {doc.filename ? `✓ ${doc.filename.length > 12 ? doc.filename.substring(0,12)+"…" : doc.filename}` : ui.docsUpload[lang]}
@@ -752,15 +752,15 @@ export default function Submit() {
                         if (file) {
                           const updated = [...form.extraDocs];
                           updated[i] = { ...updated[i], filename: file.name };
-                          set("extraDocs", updated as any);
+                          setForm(f => ({ ...f, extraDocs: updated }));
                         }
                       }} />
                   </label>
-                  <button onClick={() => set("extraDocs", form.extraDocs.filter((_, j) => j !== i) as any)}
+                  <button onClick={() => setForm(f => ({ ...f, extraDocs: f.extraDocs.filter((_, j) => j !== i) }))}
                     style={{ background: "none", border: "none", color: "#8a96a3", cursor: "pointer", fontSize: "1rem", padding: "4px", flexShrink: 0 }}>✕</button>
                 </div>
               ))}
-              <button onClick={() => set("extraDocs", [...form.extraDocs, { name: "", filename: "" }] as any)}
+              <button onClick={() => setForm(f => ({ ...f, extraDocs: [...f.extraDocs, { name: "", filename: "" }] }))}
                 style={{ background: "none", border: "1.5px dashed #c0d0e0", borderRadius: "9px", color: "#2a4a7a", cursor: "pointer", fontSize: "0.82rem", fontWeight: 600, padding: "0.6rem 1rem", width: "100%", transition: "all 0.15s" }}>
                 {ui.docsExtra[lang]}
               </button>
