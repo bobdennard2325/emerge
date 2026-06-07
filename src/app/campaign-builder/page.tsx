@@ -1,3 +1,17 @@
+/**
+ * EMERGE Capital — Prototype version 1
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/campaign-builder/page.tsx
+ * Route       : /campaign-builder
+ * Description : Campaign builder — split-screen live preview, logo upload, pitch film recorder
+ * Project     : Moroccan equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ * © 2026 EMERGE. All rights reserved.
+ */
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";

@@ -1,3 +1,17 @@
+/**
+ * EMERGE Capital — Prototype version 1
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/layout.tsx
+ * Route       : root
+ * Description : Root layout — Plus Jakarta Sans font, global responsive CSS, language provider
+ * Project     : Moroccan equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ * © 2026 EMERGE. All rights reserved.
+ */
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";

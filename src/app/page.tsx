@@ -1,3 +1,17 @@
+/**
+ * EMERGE Capital — Prototype version 1
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/page.tsx
+ * Route       : /
+ * Description : Homepage — campaign grid, login modal, trust bar, 6 project cards
+ * Project     : Moroccan equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ * © 2026 EMERGE. All rights reserved.
+ */
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";

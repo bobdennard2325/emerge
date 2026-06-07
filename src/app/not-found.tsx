@@ -1,3 +1,17 @@
+/**
+ * EMERGE Capital — Prototype version 1
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/not-found.tsx
+ * Route       : /404
+ * Description : Custom 404 page — trilingual, gradient 404, three CTAs
+ * Project     : Moroccan equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ * © 2026 EMERGE. All rights reserved.
+ */
 "use client";
 import Link from "next/link";
 import { useLanguage } from "./LanguageContext";

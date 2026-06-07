@@ -1,3 +1,17 @@
+/**
+ * EMERGE Capital — Prototype version 1
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/trust/page.tsx
+ * Route       : /trust
+ * Description : Trust & transparency hub — 7 deep-linked sections, AMMC, Sharia, Impact
+ * Project     : Moroccan equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ * © 2026 EMERGE. All rights reserved.
+ */
 "use client";
 import { useEffect } from "react";
 import Link from "next/link";
