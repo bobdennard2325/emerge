@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { translations } from "../translations";
+import { translations, Lang } from "../translations";
 import { useLanguage } from "../LanguageContext";
 
 // ─── Mock submission data ─────────────────────────────────────────────────────
