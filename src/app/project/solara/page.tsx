@@ -1,16 +1,3 @@
-/**
- * EMERGE Capital — Prototype v1.8
- * ─────────────────────────────────────────────────────────────
- * File        : emerge/src/app/project/solara/page.tsx
- * Route       : /project/solara
- * Description : Project detail — Solara CleanTech, score 64
- * Project     : Morocco's first AI-powered equity crowdfunding platform
- * Operator    : OVERSEE (AMMC-licensed investment bank)
- * Author      : EMERGE Capital / OVERSEE
- * Created     : June 2026
- * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
- * ─────────────────────────────────────────────────────────────
- */
 "use client";
 import Link from "next/link";
 import Image from "next/image";
