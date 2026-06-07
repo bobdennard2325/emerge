@@ -1,3 +1,16 @@
+/**
+ * EMERGE Capital — Prototype v1.8
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/status/page.tsx
+ * Route       : /status
+ * Description : Entrepreneur status dashboard — 5-phase tracker, AI score
+ * Project     : Morocco's first AI-powered equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ */
 "use client";
 import Link from "next/link";
 import { translations } from "../translations";
@@ -155,7 +168,7 @@ export default function SubmissionStatus() {
                     {done ? "✓" : phase.n}
                   </div>
                   <div style={{ fontSize: "0.65rem", fontWeight: active ? 700 : 500, color: active ? "#2a4a7a" : done ? "#0f1923" : "#8a96a3", textAlign: "center", maxWidth: "70px", lineHeight: 1.3 }}>
-                    {phase.label[lang]}
+                    {phase.label[lang as Lang]}
                   </div>
                 </div>
               );
@@ -184,7 +197,7 @@ export default function SubmissionStatus() {
             </div>
             <div>
               <div style={{ fontSize: "0.72rem", fontWeight: 700, color: overallBand.color, background: overallBand.bg, borderRadius: "100px", padding: "3px 12px", display: "inline-block", marginBottom: "0.4rem" }}>
-                {overallBand.label[lang]}
+                {overallBand.label[lang as Lang]}
               </div>
               <p style={{ fontSize: "0.8rem", color: "#6b7a8d", lineHeight: 1.6, margin: 0, maxWidth: "360px" }}>{ui.scoreNote[lang]}</p>
             </div>
@@ -197,9 +210,9 @@ export default function SubmissionStatus() {
             return (
               <div key={c.key} style={{ marginBottom: "0.75rem" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
-                  <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "#0f1923" }}>{c.label[lang]}</span>
+                  <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "#0f1923" }}>{c.label[lang as Lang]}</span>
                   <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <span style={{ fontSize: "0.68rem", fontWeight: 700, color: bc.color, background: bc.bg, padding: "1px 7px", borderRadius: "100px" }}>{bc.label[lang]}</span>
+                    <span style={{ fontSize: "0.68rem", fontWeight: 700, color: bc.color, background: bc.bg, padding: "1px 7px", borderRadius: "100px" }}>{bc.label[lang as Lang]}</span>
                     <span style={{ fontSize: "0.78rem", fontWeight: 800, color: "#0f1923" }}>{c.score}</span>
                   </div>
                 </div>

@@ -1,7 +1,20 @@
+/**
+ * EMERGE Capital — Prototype v1.8
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/glossary/page.tsx
+ * Route       : /glossary
+ * Description : Searchable glossary — 30 investment terms, 5 categories
+ * Project     : Morocco's first AI-powered equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ */
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { translations } from "../translations";
+import { translations, Lang } from "../translations";
 import { useLanguage } from "../LanguageContext";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -496,7 +509,7 @@ export default function Glossary() {
 }
 
 // ─── Term card with expand/collapse ──────────────────────────────────────────
-function TermCard({ term, lang, exampleLabel }: { term: Term; lang: string; exampleLabel: string }) {
+function TermCard({ term, lang, exampleLabel }: { term: Term; lang: Lang; exampleLabel: string }) {
   const [open, setOpen] = useState(() => {
     if (typeof window !== "undefined") {
       return window.location.hash === `#${term.id}`;

@@ -1,3 +1,16 @@
+/**
+ * EMERGE Capital — Prototype v1.8
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/LanguageContext.tsx
+ * Route       : root
+ * Description : React context for language state, cookie persistence
+ * Project     : Morocco's first AI-powered equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ */
 "use client";
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { Lang } from "./translations";

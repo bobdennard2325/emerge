@@ -1,7 +1,20 @@
+/**
+ * EMERGE Capital — Prototype v1.8
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/trust/page.tsx
+ * Route       : /trust
+ * Description : Trust & transparency hub — 7 deep-linked sections
+ * Project     : Morocco's first AI-powered equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ */
 "use client";
 import { useEffect } from "react";
 import Link from "next/link";
-import { translations } from "../translations";
+import { translations, Lang } from "../translations";
 import { useLanguage } from "../LanguageContext";
 
 // ─── Section data ─────────────────────────────────────────────────────────────
@@ -280,7 +293,7 @@ const sections = [
 ];
 
 // ─── Section Card component ───────────────────────────────────────────────────
-function SectionCard({ s, lang }: { s: typeof sections[0]; lang: string }) {
+function SectionCard({ s, lang }: { s: typeof sections[0]; lang: Lang }) {
   return (
     <div id={s.id} style={{ scrollMarginTop: "80px", background: "#fff", border: "1px solid #e8ecf0", borderRadius: "20px", padding: "2.5rem", marginBottom: "1.5rem" }}>
       {/* Header */}
@@ -313,7 +326,7 @@ function SectionCard({ s, lang }: { s: typeof sections[0]; lang: string }) {
         <div style={{ marginTop: "1.25rem" }}>
           <a href={(s as any).link.href} target="_blank" rel="noopener noreferrer"
             style={{ fontSize: "0.82rem", fontWeight: 600, color: s.color, textDecoration: "none" }}>
-            {(s as any).link.label[lang]}
+            {(s as any).link.label[lang as Lang]}
           </a>
         </div>
       )}

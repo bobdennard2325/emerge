@@ -1,7 +1,20 @@
+/**
+ * EMERGE Capital — Prototype v1.8
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/submit/page.tsx
+ * Route       : /submit
+ * Description : Project submission form — 6 sections + AI scoring
+ * Project     : Morocco's first AI-powered equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ */
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { translations } from "../translations";
+import { translations, Lang } from "../translations";
 import { useLanguage } from "../LanguageContext";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -141,14 +154,14 @@ const bandGradient = {
 };
 
 // ─── ScoreBar ────────────────────────────────────────────────────────────────
-function ScoreBar({ c, lang, visible }: { c: ScoreCriterion; lang: string; visible: boolean }) {
+function ScoreBar({ c, lang, visible }: { c: ScoreCriterion; lang: Lang; visible: boolean }) {
   const band = bandConfig[c.band];
   return (
     <div style={{ marginBottom: "1rem" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.3rem" }}>
-        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0f1923" }}>{c.label[lang]}</span>
+        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0f1923" }}>{c.label[lang as Lang]}</span>
         <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          <span style={{ fontSize: "0.72rem", fontWeight: 700, color: band.color, background: band.bg, padding: "2px 8px", borderRadius: "100px" }}>{band.label[lang]}</span>
+          <span style={{ fontSize: "0.72rem", fontWeight: 700, color: band.color, background: band.bg, padding: "2px 8px", borderRadius: "100px" }}>{band.label[lang as Lang]}</span>
           <span style={{ fontSize: "0.82rem", fontWeight: 800, color: "#0f1923" }}>{c.score}</span>
         </div>
       </div>
@@ -161,7 +174,7 @@ function ScoreBar({ c, lang, visible }: { c: ScoreCriterion; lang: string; visib
 }
 
 // ─── Analysing screen ─────────────────────────────────────────────────────────
-function AnalysingScreen({ lang, onComplete }: { lang: string; onComplete: () => void }) {
+function AnalysingScreen({ lang, onComplete }: { lang: Lang; onComplete: () => void }) {
   const [step, setStep] = useState(0);
   const steps = {
     FR: ["Réception du dossier…", "Analyse des documents financiers…", "Évaluation de l'opportunité de marché…", "Calcul de la conformité Charia…", "Évaluation de l'impact social…", "Génération du score final…"],
@@ -803,7 +816,7 @@ export default function Submit() {
               </div>
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontSize: "0.72rem", fontWeight: 700, color: overallBandCfg.color, background: overallBandCfg.bg, borderRadius: "100px", padding: "3px 12px", display: "inline-block", marginBottom: "0.4rem" }}>
-                  {bandConfig[overallBand].label[lang]}
+                  {bandConfig[overallBand].label[lang as Lang]}
                 </div>
                 <div style={{ fontSize: "0.8rem", color: "#6b7a8d", lineHeight: 1.6, maxWidth: "320px" }}>{ui.scoreNote[lang]}</div>
               </div>

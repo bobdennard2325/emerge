@@ -1,3 +1,16 @@
+/**
+ * EMERGE Capital — Prototype v1.8
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/investor/page.tsx
+ * Route       : /investor
+ * Description : Investor onboarding — risk questionnaire & profile result
+ * Project     : Morocco's first AI-powered equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ */
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -311,7 +324,7 @@ export default function InvestorOnboarding() {
             <div style={{ background: "#fff", border: `2px solid ${profile.color}`, borderRadius: "18px", padding: "2.5rem", marginBottom: "1.5rem", textAlign: "center" }}>
               <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>{profile.icon}</div>
               <div style={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", color: profile.color, textTransform: "uppercase", marginBottom: "0.5rem" }}>{ui.yourProfile[lang]}</div>
-              <h1 style={{ fontSize: "2rem", fontWeight: 800, color: "#0f1923", marginBottom: "1rem" }}>{profile.label[lang]}</h1>
+              <h1 style={{ fontSize: "2rem", fontWeight: 800, color: "#0f1923", marginBottom: "1rem" }}>{profile.label[lang as Lang]}</h1>
               <p style={{ fontSize: "0.92rem", color: "#4a5568", lineHeight: 1.75, maxWidth: "520px", margin: "0 auto 1.5rem" }}>{profile.desc[lang]}</p>
 
               {/* Score bar */}
@@ -416,7 +429,7 @@ export default function InvestorOnboarding() {
                             <span style={{ color: selected ? "#2a4a7a" : "#aaa", fontWeight: 700, marginRight: lang === "AR" ? 0 : "8px", marginLeft: lang === "AR" ? "8px" : 0 }}>
                               {String.fromCharCode(65 + oi)}.
                             </span>
-                            {opt.label[lang]}
+                            {opt.label[lang as Lang]}
                           </button>
                         );
                       })}

@@ -1,3 +1,16 @@
+/**
+ * EMERGE Capital — Prototype v1.8
+ * ─────────────────────────────────────────────────────────────
+ * File        : emerge/src/app/project/logitrans/page.tsx
+ * Route       : /project/logitrans
+ * Description : Project detail — LogiTrans Logistics, score 70
+ * Project     : Morocco's first AI-powered equity crowdfunding platform
+ * Operator    : OVERSEE (AMMC-licensed investment bank)
+ * Author      : EMERGE Capital / OVERSEE
+ * Created     : June 2026
+ * Stack       : Next.js 16 · TypeScript · React · Trilingual FR/EN/AR
+ * ─────────────────────────────────────────────────────────────
+ */
 "use client";
 import Link from "next/link";
 import Image from "next/image";
@@ -136,10 +149,10 @@ function ScoreBar({ criterion, lang, visible }: { criterion: ScoreCriterion; lan
   return (
     <div style={{ marginBottom: "1rem" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.35rem" }}>
-        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0f1923" }}>{criterion.label[lang]}</span>
+        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0f1923" }}>{criterion.label[lang as Lang]}</span>
         <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
           <span style={{ fontSize: "0.75rem", fontWeight: 700, color: band.color, background: band.bg, padding: "2px 8px", borderRadius: "100px" }}>
-            {band.label[lang]}
+            {band.label[lang as Lang]}
           </span>
           <span style={{ fontSize: "0.82rem", fontWeight: 800, color: "#0f1923" }}>{criterion.score}</span>
         </div>
@@ -405,7 +418,7 @@ export default function ProjectDetail() {
                   </div>
                 </div>
                 <div style={{ fontSize: "0.68rem", fontWeight: 700, color: overallBand.color, marginTop: "6px", background: overallBand.bg, borderRadius: "100px", padding: "2px 8px" }}>
-                  {overallBand.label[lang]}
+                  {overallBand.label[lang as Lang]}
                 </div>
                 <div style={{ fontSize: "0.65rem", color: "#8a96a3", marginTop: "2px" }}>{ui.overallLabel[lang]}</div>
               </div>
@@ -443,7 +456,7 @@ export default function ProjectDetail() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
               {p.docs.map(doc => (
                 <div key={doc.label.EN} style={{ display: "flex", alignItems: "center", gap: "6px", padding: "6px 14px", borderRadius: "8px", border: "1px solid #e8ecf0", fontSize: "0.78rem", color: "#4a5568", background: "#f8f9fb", cursor: "not-allowed", opacity: 0.7 }}>
-                  {doc.icon} {doc.label[lang]}
+                  {doc.icon} {doc.label[lang as Lang]}
                   <span style={{ color: "#aaa", marginLeft: "2px" }}>🔒</span>
                 </div>
               ))}
