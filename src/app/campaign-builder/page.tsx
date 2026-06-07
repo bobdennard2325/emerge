@@ -775,7 +775,7 @@ export default function CampaignBuilder() {
                   <label style={labelStyle}>{label}</label>
                   <textarea
                     style={{ ...inputStyle, minHeight: "90px", resize: "vertical", border: `1.5px solid ${error && req && !form[key] ? "#e05c5c" : "#e8ecf0"}` }}
-                    value={form[key]} onChange={e => set(key, e.target.value)}
+                    value={form[key] as string} onChange={e => set(key, e.target.value)}
                     placeholder={ph} />
                 </div>
               ))}
