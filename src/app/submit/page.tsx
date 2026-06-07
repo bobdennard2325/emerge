@@ -368,6 +368,7 @@ export default function Submit() {
     usesDebt: "", hasInterestBearing: "",
     femaleStaffPct: "", youthStaffPct: "", debtRatioPct: "", impactDesc: "",
     uploadedFiles: {}, extraDocs: [],
+    hasFinancials: false, hasBusinessPlan: false, hasMarketStudy: false, hasPitchDeck: false,
   });
 
   const set = (k: keyof FormData, v: string | boolean) => setForm(f => ({ ...f, [k]: v }));
