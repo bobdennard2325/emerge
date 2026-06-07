@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
-import { translations } from "../translations";
+import { translations, Lang } from "../translations";
 import { useLanguage } from "../LanguageContext";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -183,7 +183,7 @@ const fontOptions = [
 ];
 
 // ─── Camera Recording Modal ───────────────────────────────────────────────────
-function CameraModal({ lang, onClose, onSave }: { lang: string; onClose: () => void; onSave: (filename: string, objectUrl: string) => void }) {
+function CameraModal({ lang, onClose, onSave }: { lang: Lang; onClose: () => void; onSave: (filename: string, objectUrl: string) => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
@@ -330,7 +330,7 @@ function CameraModal({ lang, onClose, onSave }: { lang: string; onClose: () => v
 }
 
 // ─── Live Preview Component ───────────────────────────────────────────────────
-function LivePreview({ form, lang }: { form: CampaignForm; lang: string }) {
+function LivePreview({ form, lang }: { form: CampaignForm; lang: Lang }) {
   const d = approvedDossier;
   const catch_ = form.catchphrase || (lang === "FR" ? "Votre accroche apparaîtra ici…" : lang === "AR" ? "ستظهر عبارتك هنا…" : "Your catchphrase will appear here…");
   const bg = form.coverColor || coverColors[0].value;
