@@ -50,6 +50,10 @@ type FormData = {
   // Documents
   uploadedFiles: Record<string, string>;   // key -> filename
   extraDocs: { name: string; filename: string }[];
+  hasFinancials: boolean;
+  hasBusinessPlan: boolean;
+  hasMarketStudy: boolean;
+  hasPitchDeck: boolean;
 };
 
 type ScoreCriterion = {
