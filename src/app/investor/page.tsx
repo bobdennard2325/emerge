@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { translations } from "../translations";
+import { translations, Lang } from "../translations";
 import { useLanguage } from "../LanguageContext";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
