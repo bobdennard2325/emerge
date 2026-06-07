@@ -41,27 +41,75 @@ const statsData: Record<Lang, { label: string; value: string }[]> = {
 const campaignData = [
   {
     slug: "greenroots",
-    bg: "#e8f5f0", tagBg: "#d0ede4", tagColor: "#0f6e56",
     tag: { FR: "AGRITECH", EN: "AGRITECH", AR: "تكنولوجيا زراعية" },
-    title: { FR: "GreenRoots — Irrigation intelligente pour les fermes marocaines", EN: "GreenRoots — Smart irrigation for Moroccan farms", AR: "GreenRoots — الري الذكي للمزارع المغربية" },
-    desc: { FR: "Réduction de 60% de la consommation d'eau grâce à l'IA dans la région Souss-Massa.", EN: "60% reduction in water usage through AI across the Souss-Massa region.", AR: "تخفيض استهلاك المياه بنسبة 60% بفضل الذكاء الاصطناعي في منطقة سوس ماسة." },
-    raised: "730 000 MAD", pct: 73, days: 18,
+    tagBg: "#d0ede4", tagColor: "#0f6e56",
+    name: "GreenRoots",
+    catch: { FR: "Irrigation intelligente pour les fermes marocaines", EN: "Smart irrigation for Moroccan farms", AR: "الري الذكي للمزارع المغربية" },
+    location: { FR: "Agadir", EN: "Agadir", AR: "أكادير" },
+    raised: "730 000 MAD", goal: "1 000 000 MAD", pct: 73, days: 18,
+    score: 78, sharia: true, verified: true,
+    gradient: "linear-gradient(160deg,#1a3a1a 0%,#2d5a2d 40%,#0f2a1a 100%)",
+    logoInitials: "GR", logoColor: "#0f6e56",
   },
   {
     slug: "nqodi",
-    bg: "#e8f0f8", tagBg: "#d0e0f0", tagColor: "#185fa5",
     tag: { FR: "FINTECH", EN: "FINTECH", AR: "تكنولوجيا مالية" },
-    title: { FR: "Nqodi — Paiements mobiles pour les non-bancarisés", EN: "Nqodi — Mobile payments for the unbanked", AR: "Nqodi — المدفوعات المحمولة لغير المصرفيين" },
-    desc: { FR: "Inclusion financière pour 4M+ de Marocains via un portefeuille simple et hors-ligne.", EN: "Financial inclusion for 4M+ Moroccans via a simple offline-first wallet.", AR: "الشمول المالي لأكثر من 4 ملايين مغربي عبر محفظة بسيطة تعمل دون إنترنت." },
-    raised: "1,8M MAD", pct: 91, days: 6,
+    tagBg: "#d0e0f0", tagColor: "#185fa5",
+    name: "Nqodi",
+    catch: { FR: "L'inclusion financière pour tous les Marocains", EN: "Financial inclusion for every Moroccan", AR: "الشمول المالي لكل مغربي" },
+    location: { FR: "Casablanca", EN: "Casablanca", AR: "الدار البيضاء" },
+    raised: "1 638 000 MAD", goal: "1 800 000 MAD", pct: 91, days: 7,
+    score: 85, sharia: true, verified: true,
+    gradient: "linear-gradient(160deg,#0a1628 0%,#1a3a6a 40%,#0a1628 100%)",
+    logoInitials: "NQ", logoColor: "#185fa5",
   },
   {
     slug: "solara",
-    bg: "#f0f5e8", tagBg: "#d8ecb8", tagColor: "#3b6d11",
     tag: { FR: "CLEANTECH", EN: "CLEANTECH", AR: "تكنولوجيا نظيفة" },
-    title: { FR: "Solara — Énergie solaire abordable pour les PME", EN: "Solara — Affordable solar energy for SMEs", AR: "Solara — الطاقة الشمسية الميسورة للمؤسسات الصغيرة" },
-    desc: { FR: "Panneaux solaires en location-vente permettant aux PME de réduire leurs coûts de 50%.", EN: "Lease-to-own solar panels helping SMEs cut energy costs by 50%.", AR: "ألواح شمسية بنظام الإيجار المنتهي بالتمليك تساعد الشركات على تخفيض تكاليف الطاقة بنسبة 50%." },
-    raised: "450 000 MAD", pct: 45, days: 32,
+    tagBg: "#f5e8c0", tagColor: "#7a5a00",
+    name: "Solara",
+    catch: { FR: "L'énergie solaire accessible à chaque foyer marocain", EN: "Solar energy for every Moroccan household", AR: "الطاقة الشمسية لكل أسرة مغربية" },
+    location: { FR: "Marrakech", EN: "Marrakech", AR: "مراكش" },
+    raised: "450 000 MAD", goal: "1 000 000 MAD", pct: 45, days: 34,
+    score: 64, sharia: false, verified: false,
+    gradient: "linear-gradient(160deg,#1a0f00 0%,#4a2800 40%,#1a0a00 100%)",
+    logoInitials: "SL", logoColor: "#c87a00",
+  },
+  {
+    slug: "dawaetech",
+    tag: { FR: "HEALTHTECH", EN: "HEALTHTECH", AR: "تكنولوجيا صحية" },
+    tagBg: "#f0d0da", tagColor: "#8a1a3a",
+    name: "DawaeTech",
+    catch: { FR: "La pharmacie intelligente, enfin accessible au Maroc", EN: "The smart pharmacy, finally accessible in Morocco", AR: "الصيدلية الذكية، متاحة أخيراً في المغرب" },
+    location: { FR: "Rabat", EN: "Rabat", AR: "الرباط" },
+    raised: "1 054 000 MAD", goal: "1 700 000 MAD", pct: 62, days: 22,
+    score: 81, sharia: true, verified: true,
+    gradient: "linear-gradient(160deg,#1a0a14 0%,#5a1a3a 40%,#1a0a14 100%)",
+    logoInitials: "DT", logoColor: "#8a1a3a",
+  },
+  {
+    slug: "logitrans",
+    tag: { FR: "LOGISTIQUE", EN: "LOGISTICS", AR: "لوجستيك" },
+    tagBg: "#f0e8c0", tagColor: "#4a3a00",
+    name: "LogiTrans",
+    catch: { FR: "La logistique du dernier kilomètre réinventée", EN: "Last-mile logistics reinvented for Morocco", AR: "لوجستيك الميل الأخير، مُعاد ابتكاره" },
+    location: { FR: "Casablanca", EN: "Casablanca", AR: "الدار البيضاء" },
+    raised: "646 000 MAD", goal: "1 700 000 MAD", pct: 38, days: 41,
+    score: 70, sharia: true, verified: false,
+    gradient: "linear-gradient(160deg,#0f0a00 0%,#3a2800 40%,#0f0800 100%)",
+    logoInitials: "LT", logoColor: "#8a6a00",
+  },
+  {
+    slug: "edumak",
+    tag: { FR: "EDTECH", EN: "EDTECH", AR: "تكنولوجيا تعليمية" },
+    tagBg: "#e0d0f0", tagColor: "#3a1a6a",
+    name: "EduMak",
+    catch: { FR: "Démocratiser l'apprentissage pour la jeunesse marocaine", EN: "Democratising quality learning for Moroccan youth", AR: "التعلم الجيد للشباب المغربي" },
+    location: { FR: "Fès", EN: "Fès", AR: "فاس" },
+    raised: "935 000 MAD", goal: "1 700 000 MAD", pct: 55, days: 29,
+    score: 74, sharia: true, verified: true,
+    gradient: "linear-gradient(160deg,#0f0520 0%,#2a0d50 40%,#0f0520 100%)",
+    logoInitials: "EM", logoColor: "#5a1a9a",
   },
 ];
 
@@ -274,24 +322,43 @@ export default function Home() {
           <a href="#campaigns" onClick={e => { e.preventDefault(); document.getElementById("campaigns")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} style={{ fontSize: "0.85rem", color: "#2a4a7a", fontWeight: 600, textDecoration: "none", cursor: "pointer" }}>{t.campaigns.seeAll}</a>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.2rem" }}>
-          {campaignData.map(c => (
-            <Link key={c.tag.EN} href={`/project/${c.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block", background: "#fff", border: "1px solid #e8ecf0", borderRadius: "14px", overflow: "hidden", transition: "box-shadow 0.2s", cursor: "pointer" }}
-              onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)")}
-              onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}>
-              <div style={{ height: "130px", background: c.bg, display: "flex", alignItems: "flex-end", padding: "1rem" }}>
-                <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", padding: "3px 10px", borderRadius: "100px", background: c.tagBg, color: c.tagColor }}>
-                  {c.tag[lang]}
-                </span>
-              </div>
-              <div style={{ padding: "1rem 1.1rem 1.2rem" }}>
-                <div style={{ fontSize: "0.92rem", fontWeight: 700, color: "#0f1923", lineHeight: 1.35, marginBottom: "0.4rem" }}>{c.title[lang]}</div>
-                <div style={{ fontSize: "0.8rem", color: "#6b7a8d", lineHeight: 1.55, marginBottom: "0.9rem" }}>{c.desc[lang]}</div>
-                <div style={{ background: "#f0f2f5", borderRadius: "4px", height: "5px", marginBottom: "0.6rem" }}>
-                  <div style={{ width: `${c.pct}%`, height: "5px", borderRadius: "4px", background: "linear-gradient(90deg,#5bbdd4,#2a4a7a)" }} />
+          {campaignData.map(camp => (
+            <Link key={camp.slug} href={`/project/${camp.slug}`} style={{ textDecoration: "none", display: "block", borderRadius: "14px", overflow: "hidden", border: "1px solid #e8ecf0", background: "#fff", transition: "transform 0.2s, box-shadow 0.2s" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "none"; }}>
+              {/* Cover hero */}
+              <div style={{ position: "relative", height: "140px", background: camp.gradient, overflow: "hidden" }}>
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%)" }} />
+                {/* Logo */}
+                <div style={{ position: "absolute", top: "0.75rem", left: "0.75rem", width: "42px", height: "42px", borderRadius: "10px", background: camp.logoColor, border: "2px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.7rem", fontWeight: 900, color: "#fff" }}>
+                  {camp.logoInitials}
                 </div>
-                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.75rem", color: "#8a96a3" }}>
-                  <span><strong style={{ color: "#0f1923", fontWeight: 600 }}>{c.raised}</strong> {t.campaigns.raised}</span>
-                  <span>{c.pct}% · {c.days} {t.campaigns.daysLeft}</span>
+                {/* Badges top-right */}
+                <div style={{ position: "absolute", top: "0.75rem", right: "0.75rem", display: "flex", gap: "4px" }}>
+                  {camp.sharia && <span style={{ fontSize: "0.58rem", fontWeight: 700, padding: "2px 6px", borderRadius: "100px", background: "#d4edda", color: "#155724" }}>☪</span>}
+                  {camp.verified && <span style={{ fontSize: "0.58rem", fontWeight: 700, padding: "2px 6px", borderRadius: "100px", background: "#5bbdd4", color: "#fff" }}>✓</span>}
+                </div>
+                {/* Catchphrase bottom */}
+                <div style={{ position: "absolute", bottom: "0.6rem", left: "0.75rem", right: "0.75rem" }}>
+                  <p style={{ fontSize: "0.72rem", fontWeight: 700, color: "#fff", margin: 0, lineHeight: 1.3, textShadow: "0 1px 4px rgba(0,0,0,0.5)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" } as React.CSSProperties}>
+                    {camp.catch[lang]}
+                  </p>
+                </div>
+              </div>
+              {/* Card body */}
+              <div style={{ padding: "0.85rem" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.4rem" }}>
+                  <span style={{ fontSize: "0.62rem", fontWeight: 700, padding: "2px 8px", borderRadius: "100px", background: camp.tagBg, color: camp.tagColor }}>{camp.tag[lang]}</span>
+                  <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#2a4a7a" }}>Score {camp.score}</span>
+                </div>
+                <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#0f1923", marginBottom: "0.2rem" }}>{camp.name}</div>
+                <div style={{ fontSize: "0.72rem", color: "#8a96a3", marginBottom: "0.6rem" }}>{camp.location[lang]}</div>
+                <div style={{ background: "#f0f2f5", borderRadius: "3px", height: "5px", overflow: "hidden", marginBottom: "0.35rem" }}>
+                  <div style={{ width: `${camp.pct}%`, height: "5px", borderRadius: "3px", background: "linear-gradient(90deg,#5bbdd4,#2a4a7a)" }} />
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.68rem", color: "#8a96a3" }}>
+                  <span style={{ fontWeight: 600, color: "#0f1923" }}>{camp.raised}</span>
+                  <span>{camp.pct}% · {camp.days} {t.campaigns.daysLeft}</span>
                 </div>
               </div>
             </Link>

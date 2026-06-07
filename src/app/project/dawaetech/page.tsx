@@ -47,99 +47,67 @@ type ProjectData = {
   };
 };
 
-// ─── Mock project data (GreenRoots) ──────────────────────────────────────────
+// ─── Project data (dawaetech) ─────────────────────────────────────────────────────
 const projectData: ProjectData = {
-  id: "nqodi",
-  tag: { FR: "FINTECH", EN: "FINTECH", AR: "تكنولوجيا مالية" },
-  tagBg: "#d0e0f0", tagColor: "#185fa5", sectorBg: "#e8f0f8",
+  id: "dawaetech",
+  tag: { FR: "HEALTHTECH", EN: "HEALTHTECH", AR: "تكنولوجيا صحية" },
+  tagBg: "#f0d0da", tagColor: "#8a1a3a", sectorBg: "#fdf0f4",
+  company: "DawaeTech S.A.S.",
+  location: { FR: "Rabat, Maroc", EN: "Rabat, Morocco", AR: "الرباط، المغرب" },
+  sharia: true, verified: true,
+  stage: { FR: "Série A", EN: "Series A", AR: "الجولة أ" },
+  raised: "1 054 000 MAD", goal: "1 700 000 MAD", pct: 62, days: 22,
+  investors: 234, minTicket: "1 500 MAD", targetReturn: "3.8x",
+  horizon: { FR: "5 ans", EN: "5 years", AR: "5 سنوات" },
   title: {
-    FR: "Nqodi — Paiements mobiles pour les non-bancarisés",
-    EN: "Nqodi — Mobile payments for the unbanked",
-    AR: "Nqodi — المدفوعات المحمولة لغير المصرفيين",
+    FR: "DawaeTech — Plateforme digitale de gestion des ordonnances et livraison médicaments",
+    EN: "DawaeTech — Digital prescription management & medication delivery platform",
+    AR: "DawaeTech — منصة رقمية لإدارة الوصفات الطبية وتوصيل الأدوية",
   },
-  company: "Nqodi Technologies S.A.R.L.",
-  location: { FR: "Casablanca, Maroc", EN: "Casablanca, Morocco", AR: "الدار البيضاء، المغرب" },
-  sharia: true,
-  stage: { FR: "Série B", EN: "Series B", AR: "الجولة ب" },
-  raised: "1 638 000 MAD",
-  goal: "1 800 000 MAD",
-  pct: 91,
-  days: 6,
-  investors: 847,
-  minTicket: "500 MAD",
-  targetReturn: "4.5x",
-  horizon: { FR: "6 ans", EN: "6 years", AR: "6 سنوات" },
   summary: {
-    FR: "Nqodi est un portefeuille mobile hors-ligne permettant aux 4,2 millions de Marocains non-bancarisés d'envoyer, recevoir et stocker de l'argent sans compte bancaire ni connexion internet. La plateforme compte déjà 127 000 utilisateurs actifs dans 8 régions et traite plus de 2,3 millions de transactions par mois.",
-    EN: "Nqodi is an offline-first mobile wallet enabling Morocco's 4.2 million unbanked citizens to send, receive and store money without a bank account or internet connection. The platform already has 127,000 active users across 8 regions and processes over 2.3 million transactions per month.",
-    AR: "Nqodi محفظة رقمية تعمل دون إنترنت، تمكّن 4.2 مليون مغربي غير مصرفي من إرسال الأموال واستقبالها وتخزينها دون الحاجة إلى حساب بنكي. تضم المنصة 127,000 مستخدم نشط في 8 مناطق وتعالج أكثر من 2.3 مليون معاملة شهرياً.",
+    FR: "DawaeTech digitalise le parcours de santé marocain en connectant médecins, pharmacies et patients via une plateforme unifiée. Les patients reçoivent leurs médicaments en moins de 2h, les ordonnances sont vérifiées électroniquement, et les médecins accèdent à l'historique complet du patient. 12 000 utilisateurs actifs, 45 pharmacies partenaires à Rabat et Casablanca.",
+    EN: "DawaeTech digitalises the Moroccan healthcare journey by connecting doctors, pharmacies and patients via a unified platform. Patients receive their medications in under 2 hours, prescriptions are verified electronically, and doctors access complete patient history. 12,000 active users, 45 partner pharmacies across Rabat and Casablanca.",
+    AR: "تُرقمن DawaeTech مسار الرعاية الصحية المغربية من خلال ربط الأطباء والصيادلة والمرضى عبر منصة موحدة. يستلم المرضى أدويتهم في أقل من ساعتين. 12,000 مستخدم نشط، 45 صيدلية شريكة في الرباط والدار البيضاء.",
   },
-  overallScore: 85,
-  overallBand: "excellent",
-  verified: true,
+  overallScore: 81, overallBand: "excellent",
   criteria: [
-    {
-      key: "maturity", score: 72, band: "high",
-      label: { FR: "Maturité", EN: "Maturity", AR: "النضج" },
-      note: { FR: "Produit déployé, 48 clients actifs, revenus récurrents démontrés", EN: "Product deployed, 48 active clients, recurring revenue demonstrated", AR: "المنتج منتشر، 48 عميلاً نشطاً، إيرادات متكررة مثبتة" },
-    },
-    {
-      key: "market", score: 88, band: "excellent",
-      label: { FR: "Opportunité marché", EN: "Market opportunity", AR: "فرصة السوق" },
-      note: { FR: "180 000 exploitations cibles, marché de l'agritech en forte croissance", EN: "180,000 target holdings, agritech market in strong growth", AR: "180,000 مستغلّ مستهدف، سوق التكنولوجيا الزراعية في نمو قوي" },
-    },
-    {
-      key: "success", score: 74, band: "high",
-      label: { FR: "Chance de succès", EN: "Chance of success", AR: "احتمالية النجاح" },
-      note: { FR: "Équipe expérimentée, partenariats régionaux solides, traction prouvée", EN: "Experienced team, strong regional partnerships, proven traction", AR: "فريق متمرس، شراكات إقليمية قوية، ديناميكية مثبتة" },
-    },
-    {
-      key: "growth", score: 81, band: "excellent",
-      label: { FR: "Probabilité de croissance", EN: "Growth probability", AR: "احتمالية النمو" },
-      note: { FR: "Modèle scalable, expansion régionale planifiée vers Meknès-Fès", EN: "Scalable model, regional expansion planned toward Meknès-Fès", AR: "نموذج قابل للتوسع، توسع إقليمي مخطط نحو مكناس-فاس" },
-    },
-    {
-      key: "return", score: 65, band: "medium",
-      label: { FR: "TRI / Multiple cible", EN: "Target IRR / multiple", AR: "معدل العائد المستهدف" },
-      note: { FR: "Multiple 3.2x estimé sur 5 ans, dépend du rythme d'acquisition clients", EN: "Estimated 3.2x multiple over 5 years, depends on client acquisition pace", AR: "مضاعف 3.2x مقدّر على 5 سنوات، يعتمد على وتيرة اكتساب العملاء" },
-    },
-    {
-      key: "impact", score: 92, band: "excellent",
-      label: { FR: "Impact & durabilité", EN: "Impact & sustainability", AR: "الأثر والاستدامة" },
-      note: { FR: "Réduction 60% eau, aligné ODD 2 et 6, contribution directe à la souveraineté alimentaire", EN: "60% water reduction, aligned with SDGs 2 and 6, direct contribution to food sovereignty", AR: "تخفيض 60% للمياه، متوافق مع أهداف التنمية المستدامة 2 و6" },
-    },
-    {
-      key: "sharia", score: 85, band: "excellent",
-      label: { FR: "Conformité Charia", EN: "Sharia compliance", AR: "الامتثال الشرعي" },
-      note: { FR: "Activité agritech halal, aucune composante financière prohibée, revenu par equity", EN: "Halal agritech activity, no prohibited financial component, equity-based return", AR: "نشاط زراعي حلال، لا مكوّنات مالية محظورة، عائد قائم على الأسهم" },
-    },
-    {
-      key: "social", score: 79, band: "high",
-      label: { FR: "Bien-être social", EN: "Social welfare", AR: "الرفاه الاجتماعي" },
-      note: { FR: "42 emplois directs créés, soutient les petits agriculteurs, formation incluse", EN: "42 direct jobs created, supports small farmers, training included", AR: "42 وظيفة مباشرة، دعم صغار الفلاحين، تدريب مشمول" },
-    },
+    { key: "maturity", score: 78, band: "high", label: { FR: "Maturité", EN: "Maturity", AR: "النضج" }, note: { FR: "12 000 utilisateurs actifs, 45 pharmacies partenaires", EN: "12,000 active users, 45 partner pharmacies", AR: "12,000 مستخدم نشط، 45 صيدلية شريكة" } },
+    { key: "market", score: 86, band: "excellent", label: { FR: "Opportunité marché", EN: "Market opportunity", AR: "فرصة السوق" }, note: { FR: "Marché pharma marocain 18Md MAD, digitalisation naissante", EN: "Moroccan pharma market MAD 18Bn, nascent digitalisation", AR: "سوق الصيدلة المغربي 18 مليار درهم، رقمنة ناشئة" } },
+    { key: "success", score: 80, band: "excellent", label: { FR: "Chance de succès", EN: "Chance of success", AR: "احتمالية النجاح" }, note: { FR: "Équipe médicale + tech, agrément Ministère de la Santé", EN: "Medical + tech team, Ministry of Health approval", AR: "فريق طبي وتقني، موافقة وزارة الصحة" } },
+    { key: "growth", score: 83, band: "excellent", label: { FR: "Probabilité de croissance", EN: "Growth probability", AR: "احتمالية النمو" }, note: { FR: "Extension Casablanca, Fès, Marrakech planifiée en 2027", EN: "Casablanca, Fès, Marrakech extension planned 2027", AR: "توسع للدار البيضاء وفاس ومراكش مخطط 2027" } },
+    { key: "return", score: 75, band: "high", label: { FR: "TRI / Multiple cible", EN: "Target IRR / multiple", AR: "معدل العائد المستهدف" }, note: { FR: "Multiple 3.8x estimé, modèle commission par ordonnance", EN: "3.8x multiple estimated, prescription-commission model", AR: "مضاعف 3.8x مقدّر، نموذج عمولة على وصفة" } },
+    { key: "impact", score: 84, band: "excellent", label: { FR: "Impact & durabilité", EN: "Impact & sustainability", AR: "الأثر والاستدامة" }, note: { FR: "Accès aux soins ODD 3, réduction gaspillage médicaments", EN: "Healthcare access SDG 3, reduces medication waste", AR: "الوصول للرعاية الصحية هدف 3، تقليل هدر الأدوية" } },
+    { key: "sharia", score: 82, band: "excellent", label: { FR: "Conformité Charia", EN: "Sharia compliance", AR: "الامتثال الشرعي" }, note: { FR: "Activité santé halal, aucun financement portant intérêt", EN: "Halal health activity, no interest-bearing financing", AR: "نشاط صحي حلال، لا تمويل بفوائد" } },
+    { key: "social", score: 85, band: "excellent", label: { FR: "Bien-être social", EN: "Social welfare", AR: "الرفاه الاجتماعي" }, note: { FR: "52 emplois, 64% femmes, améliore accès aux soins ruraux", EN: "52 jobs, 64% women, improves rural healthcare access", AR: "52 وظيفة، 64% نساء، تحسين الوصول للرعاية الريفية" } },
   ],
   team: [
-    { name: "Imane Tazi", role: { FR: "CEO & Co-fondatrice", EN: "CEO & Co-founder", AR: "الرئيسة التنفيذية والمؤسسة المشاركة" }, initials: "IT", color: "#185fa5" },
-    { name: "Amine Alaoui", role: { FR: "CTO & Co-fondateur", EN: "CTO & Co-founder", AR: "مدير التقنية والمؤسس المشارك" }, initials: "AA", color: "#2a4a7a" },
-    { name: "Salma Benkirane", role: { FR: "Directrice Produit", EN: "Product Director", AR: "مديرة المنتج" }, initials: "SB", color: "#5bbdd4" },
+    { name: "Dr. Leila Bennani", role: { FR: "CEO & Co-fondatrice", EN: "CEO & Co-founder", AR: "الرئيسة التنفيذية" }, initials: "LB", color: "#8a1a3a" },
+    { name: "Omar Tazi", role: { FR: "CTO & Co-fondateur", EN: "CTO & Co-founder", AR: "مدير التقنية" }, initials: "OT", color: "#5bbdd4" },
+    { name: "Zineb Cherkaoui", role: { FR: "Directrice Partenariats", EN: "Partnerships Director", AR: "مديرة الشراكات" }, initials: "ZC", color: "#2a4a7a" },
   ],
   docs: [
     { label: { FR: "Business Plan", EN: "Business Plan", AR: "خطة الأعمال" }, icon: "📄" },
     { label: { FR: "États Financiers", EN: "Financial Statements", AR: "القوائم المالية" }, icon: "📊" },
+    { label: { FR: "Agrément Santé", EN: "Health Approval", AR: "موافقة الصحة" }, icon: "🏥" },
     { label: { FR: "Étude de Marché", EN: "Market Study", AR: "دراسة السوق" }, icon: "🔍" },
-    { label: { FR: "Pitch Deck", EN: "Pitch Deck", AR: "عرض المشروع" }, icon: "📑" },
   ],
-    fin: {
-    valuation: { FR: "18M MAD", EN: "18M MAD", AR: "18 م. درهم" },
-    equityOffered: { FR: "9,1%", EN: "9.1%", AR: "9.1%" },
-    sharePrice: { FR: "200 MAD", EN: "200 MAD", AR: "200 درهم" },
-    revenue: { FR: "2,3M MAD", EN: "2.3M MAD", AR: "2.3 م. درهم" },
-    ebitda: { FR: "+ 180 000 MAD", EN: "+ 180,000 MAD", AR: "+ 180,000 درهم" },
-    marketSize: { FR: "8Md MAD", EN: "MAD 8Bn", AR: "8 مليار درهم" },
-    marketGrowth: { FR: "+34% / an", EN: "+34% / year", AR: "+34% سنوياً" },
+  fin: {
+    valuation: { FR: "14M MAD", EN: "14M MAD", AR: "14 م. درهم" },
+    equityOffered: { FR: "10,8%", EN: "10.8%", AR: "10.8%" },
+    sharePrice: { FR: "175 MAD", EN: "175 MAD", AR: "175 درهم" },
+    revenue: { FR: "920 000 MAD", EN: "920,000 MAD", AR: "920,000 درهم" },
+    ebitda: { FR: "− 85 000 MAD", EN: "− 85,000 MAD", AR: "− 85,000 درهم" },
+    marketSize: { FR: "18Md MAD", EN: "MAD 18Bn", AR: "18 مليار درهم" },
+    marketGrowth: { FR: "+12% / an", EN: "+12% / year", AR: "+12% سنوياً" },
     type: { FR: "Capital", EN: "Equity", AR: "أسهم" },
   },
+  otherProjects: [
+    { slug: "greenroots", name: "GreenRoots", tag: { FR: "AGRITECH", EN: "AGRITECH", AR: "تكنولوجيا زراعية" }, tagColor: "#0f6e56", tagBg: "#d0ede4", pct: 73, score: 78 },
+    { slug: "nqodi", name: "Nqodi", tag: { FR: "FINTECH", EN: "FINTECH", AR: "تكنولوجيا مالية" }, tagColor: "#185fa5", tagBg: "#d0e0f0", pct: 91, score: 85 },
+    { slug: "solara", name: "Solara", tag: { FR: "CLEANTECH", EN: "CLEANTECH", AR: "تكنولوجيا نظيفة" }, tagColor: "#7a5a00", tagBg: "#f5e8c0", pct: 45, score: 64 },
+    { slug: "logitrans", name: "LogiTrans", tag: { FR: "LOGISTIQUE", EN: "LOGISTICS", AR: "لوجستيك" }, tagColor: "#4a3a00", tagBg: "#f0e8c0", pct: 38, score: 70 },
+    { slug: "edumak", name: "EduMak", tag: { FR: "EDTECH", EN: "EDTECH", AR: "تكنولوجيا تعليمية" }, tagColor: "#3a1a6a", tagBg: "#e0d0f0", pct: 55, score: 74 },
+  ],
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -197,7 +165,7 @@ function PitchFilm({ title, lang }: { title: string; lang: Lang }) {
   const [playing, setPlaying] = useState(false);
   const labels = {
     play:     { FR: "Voir le pitch film",    EN: "Watch pitch film",     AR: "شاهد فيلم العرض" },
-    duration: { FR: "1 min 58 sec",          EN: "1 min 58 sec",         AR: "دقيقة و58 ثانية" },
+    duration: { FR: "2 min 14 sec",          EN: "2 min 14 sec",         AR: "دقيقتان و14 ثانية" },
     note:     { FR: "Film produit par l'entrepreneur avec les outils EMERGE", EN: "Film produced by the entrepreneur using EMERGE tools", AR: "فيلم أنتجه صاحب المشروع باستخدام أدوات EMERGE" },
   };
 
@@ -205,7 +173,7 @@ function PitchFilm({ title, lang }: { title: string; lang: Lang }) {
     <div style={{ position: "relative", borderRadius: "14px", overflow: "hidden", background: "#0f1923", aspectRatio: "16/9", cursor: "pointer" }}
       onClick={() => setPlaying(!playing)}>
       {/* Gradient background simulating a farm landscape */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#0a1628 0%,#1a3a6a 40%,#0d2a4a 70%,#0a1628 100%)" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#1a0a14 0%,#5a1a3a 40%,#3a0a28 70%,#1a0a14 100%)" }} />
       {/* Decorative overlay grid */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg,rgba(91,189,212,0.04) 0px,transparent 1px,transparent 40px,rgba(91,189,212,0.04) 40px), repeating-linear-gradient(90deg,rgba(91,189,212,0.04) 0px,transparent 1px,transparent 40px,rgba(91,189,212,0.04) 40px)" }} />
       {/* Content */}
@@ -365,11 +333,11 @@ export default function ProjectDetail() {
 
       {/* COVER HERO (Republic-style) */}
       <div style={{ position: "relative", height: "340px", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#0a1628 0%,#1a3a6a 40%,#0d2a4a 70%,#0a1628 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#1a0a14 0%,#5a1a3a 40%,#3a0a28 70%,#1a0a14 100%)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%)" }} />
         {/* Logo */}
-        <div style={{ position: "absolute", top: "1.5rem", left: "2rem", width: "72px", height: "72px", borderRadius: "14px", background: "#185fa5", border: "3px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", fontWeight: 900, color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}>
-          NQ
+        <div style={{ position: "absolute", top: "1.5rem", left: "2rem", width: "72px", height: "72px", borderRadius: "14px", background: "#8a1a3a", border: "3px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", fontWeight: 900, color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}>
+          DT
         </div>
         {/* Badges */}
         <div style={{ position: "absolute", top: "1.5rem", right: "2rem", display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "flex-end" }}>
@@ -381,7 +349,7 @@ export default function ProjectDetail() {
         <div style={{ position: "absolute", bottom: "2rem", left: "2rem", right: "2rem" }}>
           <div style={{ fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.6)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.35rem" }}>{p.company}</div>
           <h1 style={{ fontSize: "1.9rem", fontWeight: 900, color: "#fff", lineHeight: 1.15, marginBottom: "0.5rem", textShadow: "0 2px 12px rgba(0,0,0,0.4)", maxWidth: "700px" }}>
-            {lang === "FR" ? "L’inclusion financière pour tous les Marocains" : lang === "AR" ? "الشمول المالي لكل مغربي" : "Financial inclusion for every Moroccan"}
+            {lang === "FR" ? "La pharmacie intelligente, enfin accessible au Maroc" : lang === "AR" ? "الصيدلية الذكية، متاحة أخيراً في المغرب" : "The smart pharmacy, finally accessible in Morocco"}
           </h1>
           <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
             <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.7)" }}>{p.location[lang]}</span>
@@ -529,7 +497,7 @@ export default function ProjectDetail() {
                   type="number"
                   value={amount}
                   onChange={e => setAmount(e.target.value)}
-                  placeholder="500"
+                  placeholder="1000"
                   style={{ width: "100%", padding: "0.7rem", borderRadius: "8px", border: "1.5px solid #5bbdd4", fontSize: "0.95rem", fontWeight: 600, outline: "none", boxSizing: "border-box", marginBottom: "0.6rem", color: "#0f1923" }}
                 />
                 <button style={{ width: "100%", background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", border: "none", borderRadius: "10px", padding: "0.75rem", fontSize: "0.88rem", fontWeight: 700, cursor: "pointer", marginBottom: "0.4rem" }}>
@@ -607,15 +575,15 @@ export default function ProjectDetail() {
             {lang === "FR" ? "Découvrir d'autres projets" : lang === "AR" ? "اكتشف مشاريع أخرى" : "Discover other projects"}
           </div>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                        <Link href="/project/greenroots" style={{ flex: 1, minWidth: "200px", display: "flex", alignItems: "center", gap: "12px", padding: "1rem 1.25rem", borderRadius: "12px", border: "1px solid #e8ecf0", background: "#fff", textDecoration: "none", color: "inherit", transition: "box-shadow 0.2s" }}
+                        <Link href="/project/nqodi" style={{ flex: 1, minWidth: "200px", display: "flex", alignItems: "center", gap: "12px", padding: "1rem 1.25rem", borderRadius: "12px", border: "1px solid #e8ecf0", background: "#fff", textDecoration: "none", color: "inherit", transition: "box-shadow 0.2s" }}
               onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)")}
               onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}>
-              <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "#d0ede4", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <span style={{ fontSize: "0.6rem", fontWeight: 800, color: "#0f6e56" }}>AGRITECH</span>
+              <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "#d0e0f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <span style={{ fontSize: "0.6rem", fontWeight: 800, color: "#185fa5" }}>FINTECH</span>
               </div>
               <div>
-                <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0f1923" }}>GreenRoots</div>
-                <div style={{ fontSize: "0.72rem", color: "#8a96a3" }}>{lang === "FR" ? "Irrigation intelligente · Agadir" : lang === "AR" ? "ري ذكي · أكادير" : "Smart irrigation · Agadir"}</div>
+                <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0f1923" }}>Nqodi</div>
+                <div style={{ fontSize: "0.72rem", color: "#8a96a3" }}>{lang === "FR" ? "Paiements mobiles · Casablanca" : lang === "AR" ? "مدفوعات محمولة · الدار البيضاء" : "Mobile payments · Casablanca"}</div>
               </div>
             </Link>
             <Link href="/project/solara" style={{ flex: 1, minWidth: "200px", display: "flex", alignItems: "center", gap: "12px", padding: "1rem 1.25rem", borderRadius: "12px", border: "1px solid #e8ecf0", background: "#fff", textDecoration: "none", color: "inherit", transition: "box-shadow 0.2s" }}

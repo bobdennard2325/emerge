@@ -47,99 +47,67 @@ type ProjectData = {
   };
 };
 
-// ─── Mock project data (GreenRoots) ──────────────────────────────────────────
+// ─── Project data (edumak) ─────────────────────────────────────────────────────
 const projectData: ProjectData = {
-  id: "nqodi",
-  tag: { FR: "FINTECH", EN: "FINTECH", AR: "تكنولوجيا مالية" },
-  tagBg: "#d0e0f0", tagColor: "#185fa5", sectorBg: "#e8f0f8",
+  id: "edumak",
+  tag: { FR: "EDTECH", EN: "EDTECH", AR: "تكنولوجيا تعليمية" },
+  tagBg: "#e0d0f0", tagColor: "#3a1a6a", sectorBg: "#f0eaf8",
+  company: "EduMak Technologies S.A.S.",
+  location: { FR: "Fès, Maroc", EN: "Fès, Morocco", AR: "فاس، المغرب" },
+  sharia: true, verified: true,
+  stage: { FR: "Série A", EN: "Series A", AR: "الجولة أ" },
+  raised: "935 000 MAD", goal: "1 700 000 MAD", pct: 55, days: 29,
+  investors: 178, minTicket: "1 000 MAD", targetReturn: "3.5x",
+  horizon: { FR: "5 ans", EN: "5 years", AR: "5 سنوات" },
   title: {
-    FR: "Nqodi — Paiements mobiles pour les non-bancarisés",
-    EN: "Nqodi — Mobile payments for the unbanked",
-    AR: "Nqodi — المدفوعات المحمولة لغير المصرفيين",
+    FR: "EduMak — Plateforme d'apprentissage adaptatif pour lycéens marocains",
+    EN: "EduMak — Adaptive learning platform for Moroccan high-school students",
+    AR: "EduMak — منصة التعلم التكيفي لطلاب الثانوي المغاربة",
   },
-  company: "Nqodi Technologies S.A.R.L.",
-  location: { FR: "Casablanca, Maroc", EN: "Casablanca, Morocco", AR: "الدار البيضاء، المغرب" },
-  sharia: true,
-  stage: { FR: "Série B", EN: "Series B", AR: "الجولة ب" },
-  raised: "1 638 000 MAD",
-  goal: "1 800 000 MAD",
-  pct: 91,
-  days: 6,
-  investors: 847,
-  minTicket: "500 MAD",
-  targetReturn: "4.5x",
-  horizon: { FR: "6 ans", EN: "6 years", AR: "6 سنوات" },
   summary: {
-    FR: "Nqodi est un portefeuille mobile hors-ligne permettant aux 4,2 millions de Marocains non-bancarisés d'envoyer, recevoir et stocker de l'argent sans compte bancaire ni connexion internet. La plateforme compte déjà 127 000 utilisateurs actifs dans 8 régions et traite plus de 2,3 millions de transactions par mois.",
-    EN: "Nqodi is an offline-first mobile wallet enabling Morocco's 4.2 million unbanked citizens to send, receive and store money without a bank account or internet connection. The platform already has 127,000 active users across 8 regions and processes over 2.3 million transactions per month.",
-    AR: "Nqodi محفظة رقمية تعمل دون إنترنت، تمكّن 4.2 مليون مغربي غير مصرفي من إرسال الأموال واستقبالها وتخزينها دون الحاجة إلى حساب بنكي. تضم المنصة 127,000 مستخدم نشط في 8 مناطق وتعالج أكثر من 2.3 مليون معاملة شهرياً.",
+    FR: "EduMak propose des parcours d'apprentissage adaptatifs basés sur l'IA pour les lycéens marocains préparant le baccalauréat. 22 000 élèves actifs, taux de réussite au bac 18% supérieur au groupe contrôle, 38 lycées publics partenaires.",
+    EN: "EduMak offers AI-based adaptive learning pathways for Moroccan high-school students preparing for their baccalaureate. 22,000 active students, 18% higher pass rate vs control group, 38 partner public high schools.",
+    AR: "تقدّم EduMak مسارات تعلم تكيفية مبنية على الذكاء الاصطناعي لطلاب الثانوي المغاربة. 22,000 طالب نشط، معدل نجاح في البكالوريا أعلى بـ 18%، 38 مدرسة ثانوية عامة شريكة.",
   },
-  overallScore: 85,
-  overallBand: "excellent",
-  verified: true,
+  overallScore: 74, overallBand: "high",
   criteria: [
-    {
-      key: "maturity", score: 72, band: "high",
-      label: { FR: "Maturité", EN: "Maturity", AR: "النضج" },
-      note: { FR: "Produit déployé, 48 clients actifs, revenus récurrents démontrés", EN: "Product deployed, 48 active clients, recurring revenue demonstrated", AR: "المنتج منتشر، 48 عميلاً نشطاً، إيرادات متكررة مثبتة" },
-    },
-    {
-      key: "market", score: 88, band: "excellent",
-      label: { FR: "Opportunité marché", EN: "Market opportunity", AR: "فرصة السوق" },
-      note: { FR: "180 000 exploitations cibles, marché de l'agritech en forte croissance", EN: "180,000 target holdings, agritech market in strong growth", AR: "180,000 مستغلّ مستهدف، سوق التكنولوجيا الزراعية في نمو قوي" },
-    },
-    {
-      key: "success", score: 74, band: "high",
-      label: { FR: "Chance de succès", EN: "Chance of success", AR: "احتمالية النجاح" },
-      note: { FR: "Équipe expérimentée, partenariats régionaux solides, traction prouvée", EN: "Experienced team, strong regional partnerships, proven traction", AR: "فريق متمرس، شراكات إقليمية قوية، ديناميكية مثبتة" },
-    },
-    {
-      key: "growth", score: 81, band: "excellent",
-      label: { FR: "Probabilité de croissance", EN: "Growth probability", AR: "احتمالية النمو" },
-      note: { FR: "Modèle scalable, expansion régionale planifiée vers Meknès-Fès", EN: "Scalable model, regional expansion planned toward Meknès-Fès", AR: "نموذج قابل للتوسع، توسع إقليمي مخطط نحو مكناس-فاس" },
-    },
-    {
-      key: "return", score: 65, band: "medium",
-      label: { FR: "TRI / Multiple cible", EN: "Target IRR / multiple", AR: "معدل العائد المستهدف" },
-      note: { FR: "Multiple 3.2x estimé sur 5 ans, dépend du rythme d'acquisition clients", EN: "Estimated 3.2x multiple over 5 years, depends on client acquisition pace", AR: "مضاعف 3.2x مقدّر على 5 سنوات، يعتمد على وتيرة اكتساب العملاء" },
-    },
-    {
-      key: "impact", score: 92, band: "excellent",
-      label: { FR: "Impact & durabilité", EN: "Impact & sustainability", AR: "الأثر والاستدامة" },
-      note: { FR: "Réduction 60% eau, aligné ODD 2 et 6, contribution directe à la souveraineté alimentaire", EN: "60% water reduction, aligned with SDGs 2 and 6, direct contribution to food sovereignty", AR: "تخفيض 60% للمياه، متوافق مع أهداف التنمية المستدامة 2 و6" },
-    },
-    {
-      key: "sharia", score: 85, band: "excellent",
-      label: { FR: "Conformité Charia", EN: "Sharia compliance", AR: "الامتثال الشرعي" },
-      note: { FR: "Activité agritech halal, aucune composante financière prohibée, revenu par equity", EN: "Halal agritech activity, no prohibited financial component, equity-based return", AR: "نشاط زراعي حلال، لا مكوّنات مالية محظورة، عائد قائم على الأسهم" },
-    },
-    {
-      key: "social", score: 79, band: "high",
-      label: { FR: "Bien-être social", EN: "Social welfare", AR: "الرفاه الاجتماعي" },
-      note: { FR: "42 emplois directs créés, soutient les petits agriculteurs, formation incluse", EN: "42 direct jobs created, supports small farmers, training included", AR: "42 وظيفة مباشرة، دعم صغار الفلاحين، تدريب مشمول" },
-    },
+    { key: "maturity", score: 70, band: "high", label: { FR: "Maturité", EN: "Maturity", AR: "النضج" }, note: { FR: "22 000 élèves actifs, 38 lycées partenaires", EN: "22,000 active students, 38 partner schools", AR: "22,000 طالب نشط، 38 مدرسة شريكة" } },
+    { key: "market", score: 78, band: "high", label: { FR: "Opportunité marché", EN: "Market opportunity", AR: "فرصة السوق" }, note: { FR: "830 000 lycéens marocains, edtech sous-pénétrée", EN: "830,000 Moroccan high-school students, under-penetrated edtech", AR: "830,000 طالب ثانوي مغربي، تقنية تعليمية ضعيفة الاختراق" } },
+    { key: "success", score: 72, band: "high", label: { FR: "Chance de succès", EN: "Chance of success", AR: "احتمالية النجاح" }, note: { FR: "Équipe pédagogique expérimentée, preuve d'impact mesurée", EN: "Experienced pedagogical team, measured impact proof", AR: "فريق تربوي متمرس، دليل أثر مقاس" } },
+    { key: "growth", score: 76, band: "high", label: { FR: "Probabilité de croissance", EN: "Growth probability", AR: "احتمالية النمو" }, note: { FR: "Extension collège et université planifiée, modèle B2G", EN: "Middle school and university extension planned, B2G model", AR: "توسع للإعدادي والجامعة مخطط، نموذج B2G" } },
+    { key: "return", score: 68, band: "high", label: { FR: "TRI / Multiple cible", EN: "Target IRR / multiple", AR: "معدل العائد المستهدف" }, note: { FR: "Multiple 3.5x sur 5 ans, abonnement + B2G", EN: "3.5x multiple over 5 years, subscription + B2G", AR: "مضاعف 3.5x على 5 سنوات، اشتراك + B2G" } },
+    { key: "impact", score: 90, band: "excellent", label: { FR: "Impact & durabilité", EN: "Impact & sustainability", AR: "الأثر والاستدامة" }, note: { FR: "ODD 4 éducation de qualité, réduction inégalités scolaires", EN: "SDG 4 quality education, reducing educational inequalities", AR: "هدف 4 جودة التعليم، تقليل التفاوت التعليمي" } },
+    { key: "sharia", score: 80, band: "excellent", label: { FR: "Conformité Charia", EN: "Sharia compliance", AR: "الامتثال الشرعي" }, note: { FR: "Activité éducative halal, structure financière saine", EN: "Halal educational activity, sound financial structure", AR: "نشاط تعليمي حلال، هيكل مالي سليم" } },
+    { key: "social", score: 88, band: "excellent", label: { FR: "Bien-être social", EN: "Social welfare", AR: "الرفاه الاجتماعي" }, note: { FR: "Accès aux lycées publics, zones rurales incluses, 72% femmes", EN: "Access to public schools, rural areas included, 72% women staff", AR: "وصول للمدارس العامة، مناطق ريفية مشمولة، 72% نساء" } },
   ],
   team: [
-    { name: "Imane Tazi", role: { FR: "CEO & Co-fondatrice", EN: "CEO & Co-founder", AR: "الرئيسة التنفيذية والمؤسسة المشاركة" }, initials: "IT", color: "#185fa5" },
-    { name: "Amine Alaoui", role: { FR: "CTO & Co-fondateur", EN: "CTO & Co-founder", AR: "مدير التقنية والمؤسس المشارك" }, initials: "AA", color: "#2a4a7a" },
-    { name: "Salma Benkirane", role: { FR: "Directrice Produit", EN: "Product Director", AR: "مديرة المنتج" }, initials: "SB", color: "#5bbdd4" },
+    { name: "Safae El Mansouri", role: { FR: "CEO & Co-fondatrice", EN: "CEO & Co-founder", AR: "الرئيسة التنفيذية" }, initials: "SE", color: "#5a1a9a" },
+    { name: "Yassine Boukili", role: { FR: "CTO & Co-fondateur", EN: "CTO & Co-founder", AR: "مدير التقنية" }, initials: "YB", color: "#2a4a7a" },
+    { name: "Houda Jamal", role: { FR: "Directrice Pédagogique", EN: "Pedagogical Director", AR: "المديرة التربوية" }, initials: "HJ", color: "#5bbdd4" },
   ],
   docs: [
     { label: { FR: "Business Plan", EN: "Business Plan", AR: "خطة الأعمال" }, icon: "📄" },
     { label: { FR: "États Financiers", EN: "Financial Statements", AR: "القوائم المالية" }, icon: "📊" },
-    { label: { FR: "Étude de Marché", EN: "Market Study", AR: "دراسة السوق" }, icon: "🔍" },
+    { label: { FR: "Étude d'Impact", EN: "Impact Study", AR: "دراسة الأثر" }, icon: "📈" },
     { label: { FR: "Pitch Deck", EN: "Pitch Deck", AR: "عرض المشروع" }, icon: "📑" },
   ],
-    fin: {
-    valuation: { FR: "18M MAD", EN: "18M MAD", AR: "18 م. درهم" },
-    equityOffered: { FR: "9,1%", EN: "9.1%", AR: "9.1%" },
-    sharePrice: { FR: "200 MAD", EN: "200 MAD", AR: "200 درهم" },
-    revenue: { FR: "2,3M MAD", EN: "2.3M MAD", AR: "2.3 م. درهم" },
-    ebitda: { FR: "+ 180 000 MAD", EN: "+ 180,000 MAD", AR: "+ 180,000 درهم" },
-    marketSize: { FR: "8Md MAD", EN: "MAD 8Bn", AR: "8 مليار درهم" },
-    marketGrowth: { FR: "+34% / an", EN: "+34% / year", AR: "+34% سنوياً" },
+  fin: {
+    valuation: { FR: "12M MAD", EN: "12M MAD", AR: "12 م. درهم" },
+    equityOffered: { FR: "12,4%", EN: "12.4%", AR: "12.4%" },
+    sharePrice: { FR: "160 MAD", EN: "160 MAD", AR: "160 درهم" },
+    revenue: { FR: "680 000 MAD", EN: "680,000 MAD", AR: "680,000 درهم" },
+    ebitda: { FR: "− 50 000 MAD", EN: "− 50,000 MAD", AR: "− 50,000 درهم" },
+    marketSize: { FR: "5Md MAD", EN: "MAD 5Bn", AR: "5 مليار درهم" },
+    marketGrowth: { FR: "+22% / an", EN: "+22% / year", AR: "+22% سنوياً" },
     type: { FR: "Capital", EN: "Equity", AR: "أسهم" },
   },
+  otherProjects: [
+    { slug: "greenroots", name: "GreenRoots", tag: { FR: "AGRITECH", EN: "AGRITECH", AR: "تكنولوجيا زراعية" }, tagColor: "#0f6e56", tagBg: "#d0ede4", pct: 73, score: 78 },
+    { slug: "nqodi", name: "Nqodi", tag: { FR: "FINTECH", EN: "FINTECH", AR: "تكنولوجيا مالية" }, tagColor: "#185fa5", tagBg: "#d0e0f0", pct: 91, score: 85 },
+    { slug: "dawaetech", name: "DawaeTech", tag: { FR: "HEALTHTECH", EN: "HEALTHTECH", AR: "تكنولوجيا صحية" }, tagColor: "#8a1a3a", tagBg: "#f0d0da", pct: 62, score: 81 },
+    { slug: "logitrans", name: "LogiTrans", tag: { FR: "LOGISTIQUE", EN: "LOGISTICS", AR: "لوجستيك" }, tagColor: "#4a3a00", tagBg: "#f0e8c0", pct: 38, score: 70 },
+    { slug: "solara", name: "Solara", tag: { FR: "CLEANTECH", EN: "CLEANTECH", AR: "تكنولوجيا نظيفة" }, tagColor: "#7a5a00", tagBg: "#f5e8c0", pct: 45, score: 64 },
+  ],
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -197,7 +165,7 @@ function PitchFilm({ title, lang }: { title: string; lang: Lang }) {
   const [playing, setPlaying] = useState(false);
   const labels = {
     play:     { FR: "Voir le pitch film",    EN: "Watch pitch film",     AR: "شاهد فيلم العرض" },
-    duration: { FR: "1 min 58 sec",          EN: "1 min 58 sec",         AR: "دقيقة و58 ثانية" },
+    duration: { FR: "2 min 14 sec",          EN: "2 min 14 sec",         AR: "دقيقتان و14 ثانية" },
     note:     { FR: "Film produit par l'entrepreneur avec les outils EMERGE", EN: "Film produced by the entrepreneur using EMERGE tools", AR: "فيلم أنتجه صاحب المشروع باستخدام أدوات EMERGE" },
   };
 
@@ -205,7 +173,7 @@ function PitchFilm({ title, lang }: { title: string; lang: Lang }) {
     <div style={{ position: "relative", borderRadius: "14px", overflow: "hidden", background: "#0f1923", aspectRatio: "16/9", cursor: "pointer" }}
       onClick={() => setPlaying(!playing)}>
       {/* Gradient background simulating a farm landscape */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#0a1628 0%,#1a3a6a 40%,#0d2a4a 70%,#0a1628 100%)" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#0f0520 0%,#2a0d50 40%,#1a0538 70%,#0f0520 100%)" }} />
       {/* Decorative overlay grid */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(0deg,rgba(91,189,212,0.04) 0px,transparent 1px,transparent 40px,rgba(91,189,212,0.04) 40px), repeating-linear-gradient(90deg,rgba(91,189,212,0.04) 0px,transparent 1px,transparent 40px,rgba(91,189,212,0.04) 40px)" }} />
       {/* Content */}
@@ -365,11 +333,11 @@ export default function ProjectDetail() {
 
       {/* COVER HERO (Republic-style) */}
       <div style={{ position: "relative", height: "340px", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#0a1628 0%,#1a3a6a 40%,#0d2a4a 70%,#0a1628 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#0f0520 0%,#2a0d50 40%,#1a0538 70%,#0f0520 100%)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%)" }} />
         {/* Logo */}
-        <div style={{ position: "absolute", top: "1.5rem", left: "2rem", width: "72px", height: "72px", borderRadius: "14px", background: "#185fa5", border: "3px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", fontWeight: 900, color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}>
-          NQ
+        <div style={{ position: "absolute", top: "1.5rem", left: "2rem", width: "72px", height: "72px", borderRadius: "14px", background: "#5a1a9a", border: "3px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", fontWeight: 900, color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}>
+          EM
         </div>
         {/* Badges */}
         <div style={{ position: "absolute", top: "1.5rem", right: "2rem", display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "flex-end" }}>
@@ -381,7 +349,7 @@ export default function ProjectDetail() {
         <div style={{ position: "absolute", bottom: "2rem", left: "2rem", right: "2rem" }}>
           <div style={{ fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.6)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.35rem" }}>{p.company}</div>
           <h1 style={{ fontSize: "1.9rem", fontWeight: 900, color: "#fff", lineHeight: 1.15, marginBottom: "0.5rem", textShadow: "0 2px 12px rgba(0,0,0,0.4)", maxWidth: "700px" }}>
-            {lang === "FR" ? "L’inclusion financière pour tous les Marocains" : lang === "AR" ? "الشمول المالي لكل مغربي" : "Financial inclusion for every Moroccan"}
+            {lang === "FR" ? "Democratiser l'apprentissage de qualite pour la jeunesse marocaine" : lang === "AR" ? "إضفاء الطابع الديمقراطي على التعلم الجيد للشباب المغربي" : "Democratising quality learning for Moroccan youth"}
           </h1>
           <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
             <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.7)" }}>{p.location[lang]}</span>
@@ -529,7 +497,7 @@ export default function ProjectDetail() {
                   type="number"
                   value={amount}
                   onChange={e => setAmount(e.target.value)}
-                  placeholder="500"
+                  placeholder="1000"
                   style={{ width: "100%", padding: "0.7rem", borderRadius: "8px", border: "1.5px solid #5bbdd4", fontSize: "0.95rem", fontWeight: 600, outline: "none", boxSizing: "border-box", marginBottom: "0.6rem", color: "#0f1923" }}
                 />
                 <button style={{ width: "100%", background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", border: "none", borderRadius: "10px", padding: "0.75rem", fontSize: "0.88rem", fontWeight: 700, cursor: "pointer", marginBottom: "0.4rem" }}>
@@ -607,15 +575,15 @@ export default function ProjectDetail() {
             {lang === "FR" ? "Découvrir d'autres projets" : lang === "AR" ? "اكتشف مشاريع أخرى" : "Discover other projects"}
           </div>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                        <Link href="/project/greenroots" style={{ flex: 1, minWidth: "200px", display: "flex", alignItems: "center", gap: "12px", padding: "1rem 1.25rem", borderRadius: "12px", border: "1px solid #e8ecf0", background: "#fff", textDecoration: "none", color: "inherit", transition: "box-shadow 0.2s" }}
+                        <Link href="/project/nqodi" style={{ flex: 1, minWidth: "200px", display: "flex", alignItems: "center", gap: "12px", padding: "1rem 1.25rem", borderRadius: "12px", border: "1px solid #e8ecf0", background: "#fff", textDecoration: "none", color: "inherit", transition: "box-shadow 0.2s" }}
               onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)")}
               onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}>
-              <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "#d0ede4", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <span style={{ fontSize: "0.6rem", fontWeight: 800, color: "#0f6e56" }}>AGRITECH</span>
+              <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "#d0e0f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <span style={{ fontSize: "0.6rem", fontWeight: 800, color: "#185fa5" }}>FINTECH</span>
               </div>
               <div>
-                <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0f1923" }}>GreenRoots</div>
-                <div style={{ fontSize: "0.72rem", color: "#8a96a3" }}>{lang === "FR" ? "Irrigation intelligente · Agadir" : lang === "AR" ? "ري ذكي · أكادير" : "Smart irrigation · Agadir"}</div>
+                <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0f1923" }}>Nqodi</div>
+                <div style={{ fontSize: "0.72rem", color: "#8a96a3" }}>{lang === "FR" ? "Paiements mobiles · Casablanca" : lang === "AR" ? "مدفوعات محمولة · الدار البيضاء" : "Mobile payments · Casablanca"}</div>
               </div>
             </Link>
             <Link href="/project/solara" style={{ flex: 1, minWidth: "200px", display: "flex", alignItems: "center", gap: "12px", padding: "1rem 1.25rem", borderRadius: "12px", border: "1px solid #e8ecf0", background: "#fff", textDecoration: "none", color: "inherit", transition: "box-shadow 0.2s" }}

@@ -362,35 +362,43 @@ export default function ProjectDetail() {
         </div>
       </nav>
 
-      {/* HERO STRIP */}
-      <div style={{ background: p.sectorBg, borderBottom: "1px solid #e8ecf0", padding: "2.5rem 3rem 0" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          {/* Badges row */}
-          <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "1rem", alignItems: "center" }}>
-            <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em", padding: "3px 10px", borderRadius: "100px", background: p.tagBg, color: p.tagColor }}>
-              {p.tag[lang]}
-            </span>
-            <span style={{ fontSize: "0.7rem", fontWeight: 700, padding: "3px 10px", borderRadius: "100px", background: "#0f1923", color: "#5bbdd4" }}>
-              {p.stage[lang]}
-            </span>
-            {p.sharia && (
-              <span style={{ fontSize: "0.7rem", fontWeight: 700, padding: "3px 10px", borderRadius: "100px", background: "#d4edda", color: "#155724" }}>
-                ☪ {ui.sharia[lang]}
-              </span>
-            )}
-            {p.verified && (
-              <span style={{ fontSize: "0.7rem", fontWeight: 700, padding: "3px 10px", borderRadius: "100px", background: "#5bbdd4", color: "#fff" }}>
-                ✓ {ui.verified[lang]}
-              </span>
-            )}
-          </div>
-          <h1 style={{ fontSize: "1.7rem", fontWeight: 800, color: "#0f1923", lineHeight: 1.2, marginBottom: "0.4rem", maxWidth: "700px" }}>
-            {p.title[lang]}
+
+      {/* COVER HERO (Republic-style) */}
+      <div style={{ position: "relative", height: "340px", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg,#1a0f00 0%,#4a2800 40%,#3a1a00 70%,#1a0a00 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%)" }} />
+        {/* Logo */}
+        <div style={{ position: "absolute", top: "1.5rem", left: "2rem", width: "72px", height: "72px", borderRadius: "14px", background: "#c87a00", border: "3px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", fontWeight: 900, color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}>
+          SL
+        </div>
+        {/* Badges */}
+        <div style={{ position: "absolute", top: "1.5rem", right: "2rem", display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "flex-end" }}>
+          <span style={{ fontSize: "0.68rem", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", background: p.tagBg, color: p.tagColor }}>{p.tag[lang]}</span>
+          {p.sharia && <span style={{ fontSize: "0.68rem", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", background: "#d4edda", color: "#155724" }}>☪ {ui.sharia[lang]}</span>}
+          {p.verified && <span style={{ fontSize: "0.68rem", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", background: "#5bbdd4", color: "#fff" }}>✓ {ui.verified[lang]}</span>}
+        </div>
+        {/* Catchphrase */}
+        <div style={{ position: "absolute", bottom: "2rem", left: "2rem", right: "2rem" }}>
+          <div style={{ fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.6)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.35rem" }}>{p.company}</div>
+          <h1 style={{ fontSize: "1.9rem", fontWeight: 900, color: "#fff", lineHeight: 1.15, marginBottom: "0.5rem", textShadow: "0 2px 12px rgba(0,0,0,0.4)", maxWidth: "700px" }}>
+            {lang === "FR" ? "L’énergie solaire accessible à chaque foyer marocain" : lang === "AR" ? "الطاقة الشمسية في متناول كل أسرة مغربية" : "Solar energy accessible to every Moroccan household"}
           </h1>
-          <div style={{ fontSize: "0.82rem", color: "#6b7a8d", marginBottom: "2rem" }}>
-            {p.company} · {p.location[lang]}
+          <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+            <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.7)" }}>{p.location[lang]}</span>
+            <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "rgba(255,255,255,0.4)", display: "inline-block" }} />
+            <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.7)" }}>{p.stage[lang]}</span>
           </div>
         </div>
+      </div>
+      {/* Progress bar */}
+      <div style={{ background: "#0f1923", padding: "0.9rem 2rem", display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" }}>
+        <div style={{ flex: 1, minWidth: "200px" }}>
+          <div style={{ background: "rgba(255,255,255,0.15)", borderRadius: "4px", height: "6px", overflow: "hidden" }}>
+            <div style={{ width: `${p.pct}%`, height: "6px", borderRadius: "4px", background: "linear-gradient(90deg,#5bbdd4,#2a4a7a)" }} />
+          </div>
+        </div>
+        <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "#fff", whiteSpace: "nowrap" }}>{p.raised}</span>
+        <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", whiteSpace: "nowrap" }}>{p.pct}% {ui.raised[lang]} · {p.days} {ui.daysLeft[lang]} · {p.investors} {ui.investors[lang]}</span>
       </div>
 
       {/* MAIN CONTENT */}
