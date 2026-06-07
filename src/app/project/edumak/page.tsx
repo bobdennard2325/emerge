@@ -45,6 +45,7 @@ type ProjectData = {
     ebitda: Record<string,string>; marketSize: Record<string,string>;
     marketGrowth: Record<string,string>; type: Record<string,string>;
   };
+  otherProjects: { slug: string; name: string; tag: Record<string,string>; tagColor: string; tagBg: string; pct: number; score: number }[];
 };
 
 // ─── Project data (edumak) ─────────────────────────────────────────────────────
