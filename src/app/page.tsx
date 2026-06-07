@@ -142,15 +142,36 @@ export default function Home() {
   return (
     <main dir={t.dir} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "#f8f9fb", color: "#0f1923", fontSize: "15px" }}>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .emerge-nav-links { display: none !important; }
+          .emerge-hero { padding: 2rem 1rem !important; }
+          .emerge-section { padding: 2rem 1rem !important; }
+          .emerge-grid-2 { grid-template-columns: 1fr !important; }
+          .emerge-grid-3 { grid-template-columns: 1fr !important; }
+          .emerge-grid-4 { grid-template-columns: 1fr 1fr !important; }
+          .emerge-sidebar { display: none !important; }
+          .emerge-builder-grid { grid-template-columns: 1fr !important; }
+          .emerge-preview-sticky { position: static !important; top: auto !important; }
+          .emerge-campaign-cards { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 480px) {
+          .emerge-nav-links { display: none !important; }
+          .emerge-grid-2 { grid-template-columns: 1fr !important; }
+          .emerge-grid-4 { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
       {/* NAV */}
-      <nav style={{ background: "#0f1923", padding: "0 3rem", display: "flex", justifyContent: "space-between", alignItems: "center", height: "68px" }}>
+      <nav style={{ background: "#0f1923", padding: "0 1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", height: "68px" }}>
         <Image src="/img/logo_emerge_cropped.png" alt="Emerge Capital" width={70} height={38} style={{ objectFit: "contain", width: "auto", height: "auto" }} />
-        <ul style={{ display: "flex", gap: "1.5rem", listStyle: "none" }}>
+        <ul className="emerge-nav-links" style={{ display: "flex", gap: "1.5rem", listStyle: "none" }}>
           {[
             { label: t.nav.campaigns, href: "/" },
             { label: t.nav.howItWorks, href: "/how-it-works" },
             { label: t.nav.investors, href: "/investor" },
             { label: t.nav.about, href: "/about" },
+            { label: lang === "FR" ? "Confiance" : lang === "AR" ? "الثقة" : "Trust", href: "/trust" },
           ].map(({ label, href }) => (
             <li key={label}>
               <Link href={href} style={{ color: "rgba(255,255,255,0.75)", textDecoration: "none", fontSize: "0.82rem", fontWeight: 500 }}>{label}</Link>
@@ -178,13 +199,21 @@ export default function Home() {
       <section style={{ background: "#fff", padding: "5rem 3rem 4rem", textAlign: "center", borderBottom: "1px solid #e8ecf0" }}>
 
         {/* AI Tagline badge */}
-        <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "linear-gradient(135deg,#0f1923,#2a4a7a)", color: "#5bbdd4", padding: "0.4rem 1.1rem", borderRadius: "100px", fontSize: "0.78rem", fontWeight: 600, marginBottom: "1rem", border: "1px solid #2a4a7a" }}>
+        <Link href="/trust#ai-platform" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "linear-gradient(135deg,#0f1923,#2a4a7a)", color: "#5bbdd4", padding: "0.4rem 1.1rem", borderRadius: "100px", fontSize: "0.78rem", fontWeight: 600, marginBottom: "1rem", border: "1px solid #2a4a7a", textDecoration: "none" }}>
           {aiTagline[lang]}
-        </div>
+        </Link>
 
-        <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#eaf6fb", color: "#2a6a8a", padding: "0.4rem 1rem", borderRadius: "100px", fontSize: "0.78rem", fontWeight: 600, marginBottom: "1.5rem", border: "1px solid #c0e4f0" }}>
-          <span style={{ width: "7px", height: "7px", background: "#5bbdd4", borderRadius: "50%", display: "inline-block" }} />
-          {t.hero.badge}
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", justifyContent: "center", marginBottom: "1.5rem" }}>
+          <Link href="/trust#ammc" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#eaf6fb", color: "#2a4a7a", padding: "0.4rem 1rem", borderRadius: "100px", fontSize: "0.78rem", fontWeight: 600, border: "1px solid #c0e4f0", textDecoration: "none" }}>
+            <span style={{ width: "7px", height: "7px", background: "#5bbdd4", borderRadius: "50%", display: "inline-block" }} />
+            {t.hero.badge}
+          </Link>
+          <Link href="/trust#sharia" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#eaf2fb", color: "#2a4a7a", padding: "0.4rem 1rem", borderRadius: "100px", fontSize: "0.78rem", fontWeight: 600, border: "1px solid #2a4a7a33", textDecoration: "none" }}>
+            ☪️ {lang === "FR" ? "Projets conformes Charia" : lang === "AR" ? "مشاريع متوافقة شرعياً" : "Sharia-compliant projects"}
+          </Link>
+          <Link href="/trust#impact" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#edf7f0", color: "#0f6e56", padding: "0.4rem 1rem", borderRadius: "100px", fontSize: "0.78rem", fontWeight: 600, border: "1px solid #0f6e5633", textDecoration: "none" }}>
+            🌍 {lang === "FR" ? "Investissement à impact" : lang === "AR" ? "استثمار مؤثر" : "Impact investing"}
+          </Link>
         </div>
 
         <h1 style={{ fontSize: "3rem", fontWeight: 800, lineHeight: 1.1, color: "#0f1923", marginBottom: "1.2rem", maxWidth: "640px", marginLeft: "auto", marginRight: "auto" }}>
@@ -242,7 +271,7 @@ export default function Home() {
       <section id="campaigns" style={{ padding: "3.5rem 3rem", maxWidth: "1100px", margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.8rem" }}>
           <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#0f1923" }}>{t.campaigns.title}</div>
-          <a href="#" style={{ fontSize: "0.85rem", color: "#2a4a7a", fontWeight: 600, textDecoration: "none" }}>{t.campaigns.seeAll}</a>
+          <a href="#campaigns" onClick={e => { e.preventDefault(); document.getElementById("campaigns")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} style={{ fontSize: "0.85rem", color: "#2a4a7a", fontWeight: 600, textDecoration: "none", cursor: "pointer" }}>{t.campaigns.seeAll}</a>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.2rem" }}>
           {campaignData.map(c => (
@@ -271,25 +300,31 @@ export default function Home() {
       </section>
 
       {/* TRUST BAR */}
-      <div style={{ background: "#fff", borderTop: "1px solid #e8ecf0", padding: "2rem 3rem", display: "flex", justifyContent: "center", gap: "2.5rem", alignItems: "center", flexWrap: "wrap" }}>
-        {[
-          { icon: "🏛️", label: t.trust.regulated },
-          { icon: "🔒", label: t.trust.secured },
-          { icon: "✅", label: t.trust.verified },
-          { icon: "📊", label: t.trust.transparent },
-        ].map(item => (
-          <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.82rem", color: "#4a5568", fontWeight: 500 }}>
-            <div style={{ width: "28px", height: "28px", borderRadius: "6px", background: "#eaf6fb", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>{item.icon}</div>
+      <div style={{ background: "#fff", borderTop: "1px solid #e8ecf0", padding: "1.5rem 3rem", display: "flex", justifyContent: "center", gap: "1.5rem", alignItems: "center", flexWrap: "wrap" }}>
+        {([
+          { icon: "🤖", label: lang === "FR" ? "Plateforme IA" : lang === "AR" ? "منصة الذكاء الاصطناعي" : "AI Platform",            anchor: "ai-platform", color: "#185fa5", bg: "#eaf2fb" },
+          { icon: "🏛️", label: t.trust.regulated,                                                                                      anchor: "ammc",        color: "#2a4a7a", bg: "#eaf2fb" },
+          { icon: "🔒", label: t.trust.secured,                                                                                         anchor: "secured",     color: "#0f6e56", bg: "#edf7f0" },
+          { icon: "✅", label: t.trust.verified,                                                                                         anchor: "verified",    color: "#2a7a4a", bg: "#edf7f0" },
+          { icon: "📊", label: t.trust.transparent,                                                                                      anchor: "reporting",   color: "#8a5a00", bg: "#fdf5e8" },
+          { icon: "☪️",  label: lang === "FR" ? "Conformité Charia" : lang === "AR" ? "الامتثال الشرعي" : "Sharia compliant",          anchor: "sharia",      color: "#2a4a7a", bg: "#eaf2fb" },
+          { icon: "🌍", label: lang === "FR" ? "Impact" : lang === "AR" ? "الأثر" : "Impact",                                          anchor: "impact",      color: "#0f6e56", bg: "#edf7f0" },
+        ] as {icon:string;label:string;anchor:string;color:string;bg:string}[]).map(item => (
+          <Link key={item.anchor} href={`/trust#${item.anchor}`}
+            style={{ display: "flex", alignItems: "center", gap: "7px", fontSize: "0.78rem", color: item.color, fontWeight: 600, textDecoration: "none", background: item.bg, padding: "0.45rem 0.9rem", borderRadius: "100px", border: `1px solid ${item.color}22`, transition: "all 0.15s" }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
+            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}>
+            <span style={{ fontSize: "14px" }}>{item.icon}</span>
             {item.label}
-          </div>
+          </Link>
         ))}
       </div>
 
       {/* FOOTER */}
       <footer style={{ background: "#0f1923", color: "#8a96a3", textAlign: "center", padding: "1.5rem", fontSize: "0.78rem" }}>
         © 2026 Emerge Capital · Casablanca, Maroc ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</a> ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</a> ·{" "}
+        <Link href="/legal" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</Link> ·{" "}
+        <Link href="/privacy" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</Link> ·{" "}
         <Link href="/glossary" style={{ color: "#5bbdd4", textDecoration: "none" }}>{lang === "FR" ? "Lexique" : lang === "AR" ? "القاموس" : "Glossary"}</Link>
       </footer>
 

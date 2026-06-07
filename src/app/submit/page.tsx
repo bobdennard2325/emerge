@@ -336,6 +336,7 @@ const labelStyle: React.CSSProperties = { display: "block", fontSize: "0.78rem",
 const sectionStyle: React.CSSProperties = { background: "#fff", border: "1px solid #e8ecf0", borderRadius: "14px", padding: "1.5rem", marginBottom: "1.25rem" };
 const sectionTitleStyle: React.CSSProperties = { fontSize: "0.9rem", fontWeight: 800, color: "#0f1923", marginBottom: "1.25rem", paddingBottom: "0.75rem", borderBottom: "2px solid #eaf6fb" };
 const gridStyle: React.CSSProperties = { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" };
+const gridClass = "emerge-grid-2";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return <div><label style={labelStyle}>{label}</label>{children}</div>;
@@ -407,10 +408,30 @@ export default function Submit() {
   return (
     <main dir={t.dir} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "#f8f9fb", color: "#0f1923", fontSize: "15px", minHeight: "100vh" }}>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .emerge-nav-links { display: none !important; }
+          .emerge-hero { padding: 2rem 1rem !important; }
+          .emerge-section { padding: 2rem 1rem !important; }
+          .emerge-grid-2 { grid-template-columns: 1fr !important; }
+          .emerge-grid-3 { grid-template-columns: 1fr !important; }
+          .emerge-grid-4 { grid-template-columns: 1fr 1fr !important; }
+          .emerge-sidebar { display: none !important; }
+          .emerge-builder-grid { grid-template-columns: 1fr !important; }
+          .emerge-preview-sticky { position: static !important; top: auto !important; }
+          .emerge-campaign-cards { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 480px) {
+          .emerge-nav-links { display: none !important; }
+          .emerge-grid-2 { grid-template-columns: 1fr !important; }
+          .emerge-grid-4 { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
       {/* NAV */}
       <nav style={{ background: "#0f1923", padding: "0 3rem", display: "flex", justifyContent: "space-between", alignItems: "center", height: "68px", position: "sticky", top: 0, zIndex: 100 }}>
         <img src="/img/logo_emerge_cropped.png" alt="Emerge Capital" width={70} style={{ height: "auto", objectFit: "contain" }} />
-                <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
+                <div className="emerge-nav-links" style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
           {([
             { label: lang === "FR" ? "Campagnes" : lang === "AR" ? "الحملات" : "Campaigns", href: "/" },
             { label: lang === "FR" ? "Comment ça marche" : lang === "AR" ? "كيف يعمل" : "How it works", href: "/how-it-works" },
@@ -453,7 +474,7 @@ export default function Submit() {
             <div style={sectionTitleStyle}>{ui.sec0[lang]}</div>
             <p style={{ fontSize: "0.78rem", color: "#6b7a8d", marginBottom: "1.1rem", lineHeight: 1.6, fontStyle: "italic" }}>{ui.sec0note[lang]}</p>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <div style={gridStyle}>
+              <div className="emerge-grid-2" style={gridStyle}>
                 <Field label={ui.username[lang]}>
                   <input style={touched && !form.username ? errorInputStyle : inputStyle} value={form.username} onChange={e => set("username", e.target.value)} placeholder="greenroots_ma" />
                   <span style={{ fontSize: "0.7rem", color: "#8a96a3", marginTop: "3px", display: "block" }}>{ui.usernameHint[lang]}</span>
@@ -474,7 +495,7 @@ export default function Submit() {
               <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#2a4a7a", marginBottom: "4px" }}>{ui.sec0b[lang]}</div>
               <p style={{ fontSize: "0.75rem", color: "#8a96a3", marginBottom: "1rem", lineHeight: 1.55, fontStyle: "italic" }}>{ui.sec0bnote[lang]}</p>
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                <div style={gridStyle}>
+                <div className="emerge-grid-2" style={gridStyle}>
                   <Field label={ui.contactName[lang]}>
                     <input style={touched && !form.contactName ? errorInputStyle : inputStyle} value={form.contactName} onChange={e => set("contactName", e.target.value)} placeholder="Youssef Benali" />
                   </Field>
@@ -496,7 +517,7 @@ export default function Submit() {
           <div style={sectionStyle}>
             <div style={sectionTitleStyle}>{ui.sec1[lang]}</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <div style={gridStyle}>
+              <div className="emerge-grid-2" style={gridStyle}>
                 <Field label={ui.companyName[lang]}>
                   <input style={touched && !form.companyName ? errorInputStyle : inputStyle} value={form.companyName} onChange={e => set("companyName", e.target.value)} placeholder="GreenRoots S.A.S." />
                 </Field>
@@ -567,7 +588,7 @@ export default function Submit() {
               <Field label={ui.projectDesc[lang]}>
                 <textarea style={{ ...(touched && !form.projectDesc ? errorInputStyle : inputStyle), minHeight: "120px", resize: "vertical" }} value={form.projectDesc} onChange={e => set("projectDesc", e.target.value)} placeholder={ui.projectDescPH[lang]} />
               </Field>
-              <div style={gridStyle}>
+              <div className="emerge-grid-2" style={gridStyle}>
                 <Field label={ui.funding[lang]}>
                   <input style={touched && !form.fundingAmount ? errorInputStyle : inputStyle} value={form.fundingAmount} onChange={e => set("fundingAmount", e.target.value)} placeholder="1 000 000" />
                 </Field>
@@ -595,7 +616,7 @@ export default function Submit() {
           <div style={sectionStyle}>
             <div style={sectionTitleStyle}>{ui.sec3[lang]}</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <div style={gridStyle}>
+              <div className="emerge-grid-2" style={gridStyle}>
                 <Field label={ui.ceoName[lang]}>
                   <input style={touched && !form.ceoName ? errorInputStyle : inputStyle} value={form.ceoName} onChange={e => set("ceoName", e.target.value)} placeholder="Youssef Benali" />
                 </Field>
@@ -662,7 +683,7 @@ export default function Submit() {
             <div style={sectionTitleStyle}>{ui.sec_impact[lang]}</div>
             <p style={{ fontSize: "0.78rem", color: "#6b7a8d", marginBottom: "1.1rem", lineHeight: 1.6, fontStyle: "italic" }}>{ui.sec_impact_note[lang]}</p>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <div style={gridStyle}>
+              <div className="emerge-grid-2" style={gridStyle}>
                 <Field label={ui.femaleStaff[lang]}>
                   <input style={inputStyle} type="number" value={form.femaleStaffPct} onChange={e => set("femaleStaffPct", e.target.value)} placeholder="35" min="0" max="100" />
                 </Field>
@@ -808,17 +829,22 @@ export default function Submit() {
             <div style={{ fontSize: "0.72rem", color: "#7a6000", lineHeight: 1.6 }}>⚠️ {ui.disclaimer[lang]}</div>
           </div>
 
-          <Link href="/" style={{ display: "block", textAlign: "center", background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", padding: "0.9rem", borderRadius: "12px", fontSize: "0.95rem", fontWeight: 700, textDecoration: "none" }}>
-            {ui.backHome[lang]}
-          </Link>
+          <div style={{ display: "flex", gap: "0.75rem", flexDirection: "column" }}>
+            <Link href="/status" style={{ display: "block", textAlign: "center", background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", color: "#fff", padding: "0.9rem", borderRadius: "12px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none" }}>
+              {lang === "FR" ? "Suivre mon dossier →" : lang === "AR" ? "متابعة ملفي ←" : "Track my file →"}
+            </Link>
+            <Link href="/" style={{ display: "block", textAlign: "center", background: "#f8f9fb", color: "#6b7a8d", padding: "0.75rem", borderRadius: "12px", fontWeight: 600, fontSize: "0.85rem", textDecoration: "none", border: "1px solid #e8ecf0" }}>
+              {lang === "FR" ? "← Retour à l'accueil" : lang === "AR" ? "← العودة إلى الرئيسية" : "← Back to home"}
+            </Link>
+          </div>
         </div>
       )}
 
       {/* FOOTER */}
       <footer style={{ background: "#0f1923", color: "#8a96a3", textAlign: "center", padding: "1.5rem", fontSize: "0.78rem" }}>
         © 2026 Emerge Capital · Casablanca, Maroc ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</a> ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</a> ·{" "}
+        <Link href="/legal" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</Link> ·{" "}
+        <Link href="/privacy" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</Link> ·{" "}
         <Link href="/glossary" style={{ color: "#5bbdd4", textDecoration: "none" }}>{lang === "FR" ? "Lexique" : lang === "AR" ? "القاموس" : "Glossary"}</Link>
       </footer>
     </main>

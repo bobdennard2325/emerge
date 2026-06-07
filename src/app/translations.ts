@@ -1,109 +1,155 @@
-export const translations = {
+export type Lang = "FR" | "EN" | "AR";
+
+export type Translations = {
+  dir: "ltr" | "rtl";
+  nav: {
+    campaigns: string;
+    howItWorks: string;
+    investors: string;
+    about: string;
+    login: string;
+    start: string;
+  };
+  hero: {
+    badge: string;
+    title1: string;
+    title2: string;
+    subtitle: string;
+    cta1: string;
+    cta2: string;
+    cta: string;
+  };
+  campaigns: {
+    title: string;
+    seeAll: string;
+    raised: string;
+    daysLeft: string;
+  };
+  trust: {
+    regulated: string;
+    secured: string;
+    verified: string;
+    transparent: string;
+  };
+  footer: {
+    legal: string;
+    privacy: string;
+    glossary: string;
+  };
+};
+
+export const translations: Record<Lang, Translations> = {
   FR: {
     dir: "ltr",
     nav: {
-      campaigns: "Campagnes",
+      campaigns:  "Campagnes",
       howItWorks: "Comment ça marche",
-      investors: "Investisseurs",
-      about: "À propos",
-      login: "Se connecter",
-      start: "Déposer un projet",
+      investors:  "Investisseurs",
+      about:      "À propos",
+      login:      "Se connecter",
+      start:      "Déposer un projet",
     },
     hero: {
-      badge: "Plateforme régulée par l'Autorité Marocaine du Marché des Capitaux",
-      title1: "Investissez dans les",
-      title2: "champions de demain",
-      subtitle: "Emerge Capital connecte les startups marocaines visionnaires avec des investisseurs avisés. Devenez actionnaire des entreprises qui façonnent l'avenir de l'Afrique.",
-      cta1: "Voir les campagnes",
-      cta2: "Comment ça marche",
+      badge:    "Plateforme régulée par l'AMMC",
+      title1:   "Investissez dans",
+      title2:   "les startups marocaines",
+      subtitle: "La première plateforme de financement participatif en capital du Maroc. Des projets vérifiés, un score IA impartial, des options conformes à la Charia.",
+      cta1:     "Voir les projets",
+      cta2:     "Comment ça marche",
+      cta:      "Découvrir les projets",
     },
     campaigns: {
-      title: "Campagnes en cours",
-      seeAll: "Voir toutes →",
-      raised: "levés",
+      title:    "Projets en cours de financement",
+      seeAll:   "Voir tout",
+      raised:   "levés",
       daysLeft: "jours restants",
     },
     trust: {
-      regulated: "Régulé par l'AMMC",
-      secured: "Fonds sécurisés",
-      verified: "Startups vérifiées",
-      transparent: "Rapports transparents",
+      regulated:   "Plateforme régulée par l'AMMC",
+      secured:     "Fonds sécurisés",
+      verified:    "Projets vérifiés",
+      transparent: "Reporting transparent",
     },
     footer: {
-      legal: "Mentions légales",
-      privacy: "Politique de confidentialité",
+      legal:   "Mentions légales",
+      privacy: "Confidentialité",
+      glossary:"Lexique",
     },
   },
+
   EN: {
     dir: "ltr",
     nav: {
-      campaigns: "Campaigns",
+      campaigns:  "Campaigns",
       howItWorks: "How it works",
-      investors: "Investors",
-      about: "About",
-      login: "Sign in",
-      start: "Submit a project",
+      investors:  "Investors",
+      about:      "About",
+      login:      "Sign in",
+      start:      "Submit a project",
     },
     hero: {
-      badge: "Regulated platform by the Moroccan Capital Markets Authority",
-      title1: "Invest in",
-      title2: "tomorrow's champions",
-      subtitle: "Emerge Capital connects visionary Moroccan startups with smart investors. Own a stake in the companies shaping Africa's future.",
-      cta1: "Browse campaigns",
-      cta2: "How it works",
+      badge:    "Platform regulated by the AMMC",
+      title1:   "Invest in",
+      title2:   "Moroccan startups",
+      subtitle: "Morocco's first equity crowdfunding platform. Verified projects, impartial AI scoring, Sharia-compliant options.",
+      cta1:     "Browse projects",
+      cta2:     "How it works",
+      cta:      "Discover projects",
     },
     campaigns: {
-      title: "Live campaigns",
-      seeAll: "See all →",
-      raised: "raised",
+      title:    "Projects currently raising",
+      seeAll:   "See all",
+      raised:   "raised",
       daysLeft: "days left",
     },
     trust: {
-      regulated: "Regulated by AMMC",
-      secured: "Secured funds",
-      verified: "Verified startups",
+      regulated:   "Platform regulated by the AMMC",
+      secured:     "Secured funds",
+      verified:    "Verified projects",
       transparent: "Transparent reporting",
     },
     footer: {
-      legal: "Legal notice",
-      privacy: "Privacy policy",
+      legal:   "Legal",
+      privacy: "Privacy",
+      glossary:"Glossary",
     },
   },
+
   AR: {
     dir: "rtl",
     nav: {
-      campaigns: "الحملات",
+      campaigns:  "الحملات",
       howItWorks: "كيف يعمل",
-      investors: "المستثمرون",
-      about: "من نحن",
-      login: "تسجيل الدخول",
-      start: "تقديم مشروع",
+      investors:  "المستثمرون",
+      about:      "حول",
+      login:      "تسجيل الدخول",
+      start:      "تقديم مشروع",
     },
     hero: {
-      badge: "منصة خاضعة لرقابة هيئة مسالك رأس المال المغربية",
-      title1: "استثمر في",
-      title2: "أبطال الغد",
-      subtitle: "تربط Emerge Capital الشركات الناشئة المغربية الرائدة بالمستثمرين الأذكياء. امتلك حصة في الشركات التي تصنع مستقبل أفريقيا.",
-      cta1: "تصفح الحملات",
-      cta2: "كيف يعمل",
+      badge:    "منصة خاضعة لرقابة AMMC",
+      title1:   "استثمر في",
+      title2:   "الشركات الناشئة المغربية",
+      subtitle: "أول منصة مغربية للتمويل الجماعي بالأسهم. مشاريع موثّقة، تقييم ذكاء اصطناعي محايد، خيارات متوافقة مع الشريعة.",
+      cta1:     "تصفح المشاريع",
+      cta2:     "كيف يعمل",
+      cta:      "اكتشف المشاريع",
     },
     campaigns: {
-      title: "الحملات الجارية",
-      seeAll: "عرض الكل →",
-      raised: "تم جمعها",
+      title:    "مشاريع قيد التمويل",
+      seeAll:   "عرض الكل",
+      raised:   "جُمع",
       daysLeft: "أيام متبقية",
     },
     trust: {
-      regulated: "خاضع لرقابة AMMC",
-      secured: "أموال مؤمّنة",
-      verified: "شركات ناشئة موثّقة",
+      regulated:   "منصة خاضعة لرقابة AMMC",
+      secured:     "أموال مؤمّنة",
+      verified:    "مشاريع موثّقة",
       transparent: "تقارير شفافة",
     },
     footer: {
-      legal: "الإشعار القانوني",
-      privacy: "سياسة الخصوصية",
+      legal:   "الشروط القانونية",
+      privacy: "الخصوصية",
+      glossary:"القاموس",
     },
   },
 };
-
-export type Lang = keyof typeof translations;

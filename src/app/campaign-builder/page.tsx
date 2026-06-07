@@ -512,6 +512,26 @@ export default function CampaignBuilder() {
   if (stage === "submitted") {
     return (
       <main dir={t.dir} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "#f8f9fb", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .emerge-nav-links { display: none !important; }
+          .emerge-hero { padding: 2rem 1rem !important; }
+          .emerge-section { padding: 2rem 1rem !important; }
+          .emerge-grid-2 { grid-template-columns: 1fr !important; }
+          .emerge-grid-3 { grid-template-columns: 1fr !important; }
+          .emerge-grid-4 { grid-template-columns: 1fr 1fr !important; }
+          .emerge-sidebar { display: none !important; }
+          .emerge-builder-grid { grid-template-columns: 1fr !important; }
+          .emerge-preview-sticky { position: static !important; top: auto !important; }
+          .emerge-campaign-cards { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 480px) {
+          .emerge-nav-links { display: none !important; }
+          .emerge-grid-2 { grid-template-columns: 1fr !important; }
+          .emerge-grid-4 { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
         <div style={{ maxWidth: "520px", padding: "2rem", textAlign: "center" }}>
           <div style={{ width: "72px", height: "72px", borderRadius: "50%", background: "linear-gradient(135deg,#5bbdd4,#2a4a7a)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem", margin: "0 auto 1.5rem" }}>✓</div>
           <h1 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#0f1923", marginBottom: "0.75rem" }}>{ui.doneTitle[lang]}</h1>
@@ -554,7 +574,7 @@ export default function CampaignBuilder() {
       </div>
 
       {/* SPLIT LAYOUT */}
-      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "2rem", display: "grid", gridTemplateColumns: "1fr 380px", gap: "2rem", alignItems: "start" }}>
+      <div className="emerge-builder-grid" style={{ maxWidth: "1300px", margin: "0 auto", padding: "2rem", display: "grid", gridTemplateColumns: "1fr 380px", gap: "2rem", alignItems: "start" }}>
 
         {/* LEFT — FORM */}
         <div>
@@ -770,7 +790,7 @@ export default function CampaignBuilder() {
         </div>
 
         {/* RIGHT — LIVE PREVIEW */}
-        <div style={{ position: "sticky", top: "80px" }}>
+        <div className="emerge-preview-sticky" style={{ position: "sticky", top: "80px" }}>
           <div style={{ fontSize: "0.7rem", fontWeight: 700, color: "#8a96a3", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.5rem", display: "flex", alignItems: "center", gap: "6px" }}>
             <span style={{ width: "6px", height: "6px", background: "#5bbdd4", borderRadius: "50%", display: "inline-block", animation: "pulse 2s infinite" }} />
             {ui.preview[lang]}
@@ -790,8 +810,8 @@ export default function CampaignBuilder() {
       {/* FOOTER */}
       <footer style={{ background: "#0f1923", color: "#8a96a3", textAlign: "center", padding: "1.5rem", fontSize: "0.78rem" }}>
         © 2026 Emerge Capital · Casablanca, Maroc ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</a> ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</a> ·{" "}
+        <Link href="/legal" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</Link> ·{" "}
+        <Link href="/privacy" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</Link> ·{" "}
         <Link href="/glossary" style={{ color: "#5bbdd4", textDecoration: "none" }}>{lang === "FR" ? "Lexique" : lang === "AR" ? "القاموس" : "Glossary"}</Link>
       </footer>
     </main>

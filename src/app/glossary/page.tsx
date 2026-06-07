@@ -381,10 +381,30 @@ export default function Glossary() {
   return (
     <main dir={t.dir} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "#f8f9fb", color: "#0f1923", fontSize: "15px", minHeight: "100vh" }}>
 
+      <style>{`
+        @media (max-width: 768px) {
+          .emerge-nav-links { display: none !important; }
+          .emerge-hero { padding: 2rem 1rem !important; }
+          .emerge-section { padding: 2rem 1rem !important; }
+          .emerge-grid-2 { grid-template-columns: 1fr !important; }
+          .emerge-grid-3 { grid-template-columns: 1fr !important; }
+          .emerge-grid-4 { grid-template-columns: 1fr 1fr !important; }
+          .emerge-sidebar { display: none !important; }
+          .emerge-builder-grid { grid-template-columns: 1fr !important; }
+          .emerge-preview-sticky { position: static !important; top: auto !important; }
+          .emerge-campaign-cards { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 480px) {
+          .emerge-nav-links { display: none !important; }
+          .emerge-grid-2 { grid-template-columns: 1fr !important; }
+          .emerge-grid-4 { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
       {/* NAV */}
       <nav style={{ background: "#0f1923", padding: "0 3rem", display: "flex", justifyContent: "space-between", alignItems: "center", height: "68px", position: "sticky", top: 0, zIndex: 100 }}>
         <img src="/img/logo_emerge_cropped.png" alt="Emerge Capital" width={70} style={{ height: "auto", objectFit: "contain" }} />
-                <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
+                <div className="emerge-nav-links" style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
           {([
             { label: lang === "FR" ? "Campagnes" : lang === "AR" ? "الحملات" : "Campaigns", href: "/" },
             { label: lang === "FR" ? "Comment ça marche" : lang === "AR" ? "كيف يعمل" : "How it works", href: "/how-it-works" },
@@ -468,8 +488,8 @@ export default function Glossary() {
       {/* FOOTER */}
       <footer style={{ background: "#0f1923", color: "#8a96a3", textAlign: "center", padding: "1.5rem", fontSize: "0.78rem" }}>
         © 2026 Emerge Capital · Casablanca, Maroc ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</a> ·{" "}
-        <a href="#" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</a>
+        <Link href="/legal" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.legal}</Link> ·{" "}
+        <Link href="/privacy" style={{ color: "#5bbdd4", textDecoration: "none" }}>{t.footer.privacy}</Link>
       </footer>
     </main>
   );
